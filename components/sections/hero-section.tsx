@@ -8,6 +8,7 @@ const milestones = [
     number: "01",
     date: "08 JUL 2024",
     title: "NOSSO 1º SIM",
+    desc: "O momento que decidirmos dar uma chance um para o outro. Iniciar um propósito de oração, e buscar se conhecer e conhecer a Deus juntos. Poucos, mas importantes encontros e várias conversas difíceis - uma delas sendo a decisão do primeiro beijo apenas no altar.",
     image: "/first-date.png",
     alt: "Nosso primeiro encontro",
   },
@@ -15,6 +16,7 @@ const milestones = [
     number: "02",
     date: "20 NOV 2024",
     title: `O INÍCIO DE "NÓS"`,
+    desc: "Foi o momento em que tivemos a certeza do que havia um propósito maior para nossas vidas, e que estávamos prontos para buscar nos tornar uma família - uns dizem que foi quando finalmente o João criou coragem, pensem o que quiserem.",
     image: "/pedido-namoro.png",
     alt: "Noivado",
   },
@@ -22,6 +24,7 @@ const milestones = [
     number: "03",
     date: "20 NOV 2025",
     title: "A CONFIRMAÇÃO",
+    desc: "Exatamente um ano depois do pedido de namoro, veio a confirmação daquilo que já sábíamos: estávamos prontos para dar o próximo passo juntos, rumo ao altar - ô muié ruim de fazer surpresa",
     image: "/noivado.jpeg",
     alt: "Noivado",
   },
@@ -109,19 +112,18 @@ const imagesItem: Variants = {
 
 export const HeroSection = () => {
   return (
-    <div className="grid lg:grid-cols-[1fr_2fr] gap-12 items-start">
+    <section className="grid lg:grid-cols-[1fr_2fr] gap-12 items-start mx-6">
       {/* Left Column: Title and Decorative Element */}
       <div className="relative space-y-12">
         {/* Large Title */}
         <h1 className="my-8 font-serif text-5xl lg:text-9xl font-light leading-[0.85] tracking-tight text-foreground">
           <motion.div variants={container} initial="hidden" whileInView="show">
             <motion.span variants={item}>
-              SAVE <br className="hidden lg:block" />
+              NOSSA <br className="hidden lg:block" />
             </motion.span>
             <motion.span variants={item}>
-              THE <br className="hidden lg:block" />
+              HISTÓRIA <br className="hidden lg:block" />
             </motion.span>
-            <motion.span variants={item}>DATES</motion.span>
           </motion.div>
         </h1>
 
@@ -129,10 +131,8 @@ export const HeroSection = () => {
           <ArrowDown />
         </div>
 
-        {/* Decorative Circular Monogram */}
         <div className="absolute -top-3 right-0 w-32 h-32 md:static animate-spin animation-duration-[10s]">
           <svg viewBox="0 0 120 120" className="w-full h-full">
-            {/* Outer circle */}
             <circle
               cx="60"
               cy="60"
@@ -154,22 +154,6 @@ export const HeroSection = () => {
                 VOCÊ ESTÁ CONVIDADO VOCÊ ESTÁ CONVIDADO
               </textPath>
             </text>
-
-            {/* Center dots */}
-            <circle
-              cx="60"
-              cy="55"
-              r="1.5"
-              fill="currentColor"
-              className="hidden md:block"
-            />
-            <circle
-              cx="60"
-              cy="65"
-              r="1.5"
-              fill="currentColor"
-              className="hidden md:block"
-            />
           </svg>
         </div>
       </div>
@@ -184,10 +168,9 @@ export const HeroSection = () => {
         {milestones.map((milestone, index) => (
           <motion.div
             key={index}
-            className="group relative"
+            className="group relative mb-20 md:mb-0"
             variants={imagesContainer}
           >
-            {/* Oval Image Container */}
             <motion.div
               className="relative aspect-[9/16] overflow-visible rounded-full border border-black/10"
               variants={imagesParent}
@@ -200,27 +183,24 @@ export const HeroSection = () => {
                   className="object-cover rounded-full"
                 />
               </motion.div>
-
-              {/* Number Overlay */}
-              <div className="absolute bottom-0 right-0">
-                <span className="font-serif text-8xl lg:text-8xl text-white mix-blend-difference">
-                  {milestone.number}
-                </span>
-              </div>
             </motion.div>
 
-            {/* Text Content */}
-            <div className="mt-6 text-center space-y-2">
+            <div className="w-[2px] h-20 bg-linear-to-b from-foreground/20 rounded-full to-transparent mx-auto mt-4" />
+
+            <div className="mt-2 text-center space-y-2">
               <p className="text-xs tracking-widest uppercase text-muted-foreground">
                 {milestone.date}
               </p>
               <h3 className="font-serif text-3xl md:text-xl lg:text-2x xl:text-3xl tracking-wide">
                 {milestone.title}
               </h3>
+              <p className="text-xs tracking-widest text-muted-foreground text-">
+                {milestone.desc}
+              </p>
             </div>
           </motion.div>
         ))}
       </motion.div>
-    </div>
+    </section>
   );
 };

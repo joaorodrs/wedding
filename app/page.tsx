@@ -7,10 +7,12 @@ export default function HomePage() {
     <div className="min-h-screen bg-background">
       <WeddingNav />
 
-      <main className="container mx-auto px-6 pt-32 pb-16">
-        <HeroSection />
-
+      <main className="pb-16 flex-1">
         <NewChapterSection />
+
+        <div className="h-[1px] w-full bg-black/10 my-20" />
+
+        <HeroSection />
       </main>
     </div>
   );

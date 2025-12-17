@@ -5,15 +5,12 @@ import { motion, useScroll, useTransform } from "motion/react";
 
 export const NewChapterSection = () => {
   const { scrollYProgress } = useScroll();
-  const scale = useTransform(scrollYProgress, [0.2, 1], [2, 2]);
-  const translateY = useTransform(scrollYProgress, [0, 2.2], ["-80%", "50%"]);
+  const translateY = useTransform(scrollYProgress, [0, 1], ["-20%", "100%"]);
 
   return (
-    <section className="mt-16">
-      <h1 className="font-serif text-4xl">E agora, um novo capítulo...</h1>
-
+    <section>
       <div className="relative">
-        <div className="relative mt-12 aspect-[9/16] overflow-hidden rounded-full border border-black/10 md:aspect-[21/9]">
+        <div className="relative aspect-[3/4] overflow-hidden md:aspect-[21/9]">
           <motion.div
             className="relative size-full h-[200vh]"
             style={{ translateY }}
@@ -29,7 +26,7 @@ export const NewChapterSection = () => {
         {/* Number Overlay */}
         <div className="absolute bottom-0 right-0">
           <span className="font-serif text-8xl lg:text-[200px] text-white mix-blend-difference">
-            20.06
+            20/06
           </span>
         </div>
       </div>
@@ -40,6 +37,17 @@ export const NewChapterSection = () => {
           &
         </h1>
         <h1 className="">Thais</h1>
+      </div>
+
+      <p className="mt-12 text-center text-lg md:text-xl max-w-3xl mx-auto md:max-w-2xl md:mt-0">
+        Uma nova história está sendo escrita pelas mãos de Deus, e somos
+        honrados pela sua presença em um momento tão especial!
+      </p>
+
+      <div className="w-full flex items-center justify-center mt-12">
+        <button className="cursor-pointer bg-foreground text-white py-3 px-4 font-serif text-2xl rounded-full md:mx-auto md:px-8 md:text-3xl hover:ring-1 hover:ring-black/10 hover:ring-offset-10 hover:ring-offset-background transition duration-200 focus:ring-foreground focus:ring-1">
+          Confirme sua presença
+        </button>
       </div>
     </section>
   );
