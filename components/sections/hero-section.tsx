@@ -168,11 +168,11 @@ export const HeroSection = () => {
         {milestones.map((milestone, index) => (
           <motion.div
             key={index}
-            className="group relative mb-20 md:mb-0"
+            className="group relative mb-20 md:mb-0 flex flex-col"
             variants={imagesContainer}
           >
             <motion.div
-              className="relative aspect-[9/16] overflow-visible rounded-full border border-black/10"
+              className="relative aspect-[9/16] w-[250px] mx-auto overflow-visible rounded-full border border-black/10"
               variants={imagesParent}
             >
               <motion.div className="absolute size-full" variants={imagesItem}>

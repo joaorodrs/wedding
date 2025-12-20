@@ -1,6 +1,7 @@
 import { WeddingNav } from "@/components/wedding-nav";
 import { HeroSection } from "@/components/sections/hero-section";
 import { NewChapterSection } from "@/components/sections/new-chapter-section";
+import OurHistory from "@/components/sections/our-history";
 
 export default function HomePage() {
   return (
@@ -13,6 +14,8 @@ export default function HomePage() {
         <div className="h-[1px] w-full bg-black/10 my-20" />
 
         <HeroSection />
+
+        <OurHistory />
       </main>
     </div>
   );

@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 
 export const NewChapterSection = () => {
   const { scrollYProgress } = useScroll();
-  const translateY = useTransform(scrollYProgress, [0, 1], ["-20%", "100%"]);
+  const translateY = useTransform(scrollYProgress, [0, 1.5], ["-20%", "100%"]);
 
   return (
     <section>
