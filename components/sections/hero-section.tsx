@@ -1,7 +1,9 @@
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import * as motion from "motion/react-client";
 import { Variants } from "motion";
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 const milestones = [
   {
@@ -110,7 +112,7 @@ const imagesItem: Variants = {
   },
 };
 
-export const HeroSection = () => {
+export const HeroSection = ({ hideButton }: { hideButton?: boolean }) => {
   return (
     <section className="grid lg:grid-cols-[1fr_2fr] gap-12 items-start mx-6">
       {/* Left Column: Title and Decorative Element */}
@@ -126,6 +128,17 @@ export const HeroSection = () => {
             </motion.span>
           </motion.div>
         </h1>
+
+        {!hideButton && (
+          <Link href="/nossa-historia" className="hidden md:flex">
+            <Button
+              className="rounded-full mt-4 text-3xl h-fit py-2 font-serif flex"
+              size="lg"
+            >
+              Conheça nossa história <ExternalLink />
+            </Button>
+          </Link>
+        )}
 
         <div className="absolute animate-bounce md:hidden">
           <ArrowDown />
@@ -158,9 +171,9 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* Right Column: Timeline Cards */}
       <motion.div
-        className="grid md:grid-cols-3 gap-6 lg:gap-8"
+        className="grid md:grid-cols-3 gap-6 mb-20 lg:gap-8 data-[hide=true]:max-md:hidden"
+        data-hide={hideButton}
         variants={images}
         initial="hidden"
         whileInView="show"
@@ -168,7 +181,7 @@ export const HeroSection = () => {
         {milestones.map((milestone, index) => (
           <motion.div
             key={index}
-            className="group relative mb-20 md:mb-0 flex flex-col"
+            className="group relative mb-20 md:mb-0 flex flex-col last-of-type:mb-0"
             variants={imagesContainer}
           >
             <motion.div
@@ -200,6 +213,17 @@ export const HeroSection = () => {
             </div>
           </motion.div>
         ))}
+
+        {!hideButton && (
+          <Link href="/nossa-historia" className="md:hidden w-full">
+            <Button
+              className="rounded-full mt-4 text-xl font-serif w-full"
+              size="lg"
+            >
+              Conheça nossa história
+            </Button>
+          </Link>
+        )}
       </motion.div>
     </section>
   );

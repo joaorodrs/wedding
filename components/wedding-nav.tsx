@@ -14,28 +14,28 @@ export function WeddingNav() {
           {/* Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
             <Link
-              href="#rsvp"
+              href="/#rsvp"
               className="text-sm tracking-widest uppercase hover:opacity-70 transition-opacity"
             >
               RSVP
             </Link>
             <Link
-              href="#nossa-historia"
+              href="/nossa-historia"
               className="text-sm tracking-widest uppercase hover:opacity-70 transition-opacity"
             >
               Nossa história
             </Link>
             <Link
-              href="/photos"
+              href="/cerimonia"
               className="text-sm tracking-widest uppercase hover:opacity-70 transition-opacity"
             >
               A CERIMÔNIA
             </Link>
             <Link
-              href="/contact"
+              href="/presentes"
               className="text-sm tracking-widest uppercase hover:opacity-70 transition-opacity"
             >
-              FOTOS
+              PRESENTES
             </Link>
           </div>
 

@@ -24,7 +24,7 @@ export const NewChapterSection = () => {
           </motion.div>
         </div>
         {/* Number Overlay */}
-        <div className="absolute bottom-0 right-0">
+        <div id="rsvp" className="absolute bottom-0 right-0">
           <span className="font-serif text-8xl lg:text-[200px] text-white mix-blend-difference">
             20/06
           </span>
