@@ -285,7 +285,7 @@ export default function PresentesPage() {
         {/* Header Section */}
         <div className="text-center mb-16 space-y-4">
           <h1 className="font-serif text-6xl md:text-7xl tracking-tight text-foreground">
-            Lista de Presentes
+            PRESENTES
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
             Sua presença é o nosso maior presente. Mas se desejar nos

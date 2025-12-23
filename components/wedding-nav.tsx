@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Menu } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+  SheetTitle,
+} from "@/components/ui/sheet";
 
 export function WeddingNav() {
   return (
@@ -7,46 +14,86 @@ export function WeddingNav() {
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           {/* Logo/Monogram */}
-          <Link href="/" className="text-5xl font-mono">
-            JT
+          <Link href="/" className="text-5xl font-serif">
+            J<span className="text-black/30 text-4xl">&</span>T
           </Link>
 
-          {/* Navigation Links */}
-          <div className="hidden md:flex items-center gap-8">
-            <Link
-              href="/#rsvp"
-              className="text-sm tracking-widest uppercase hover:opacity-70 transition-opacity"
-            >
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8 text-sm tracking-widest uppercase ">
+            <Link href="/#rsvp" className="hover:opacity-70 transition-opacity">
               RSVP
             </Link>
             <Link
               href="/nossa-historia"
-              className="text-sm tracking-widest uppercase hover:opacity-70 transition-opacity"
+              className="hover:opacity-70 transition-opacity"
             >
               Nossa história
             </Link>
             <Link
               href="/cerimonia"
-              className="text-sm tracking-widest uppercase hover:opacity-70 transition-opacity"
+              className="hover:opacity-70 transition-opacity"
             >
               A CERIMÔNIA
             </Link>
             <Link
               href="/presentes"
-              className="text-sm tracking-widest uppercase hover:opacity-70 transition-opacity"
+              className="hover:opacity-70 transition-opacity"
             >
               PRESENTES
             </Link>
           </div>
 
-          {/* Direction Link */}
-          <Link
-            href="/direction"
-            className="flex items-center gap-2 text-sm tracking-widest uppercase hover:opacity-70 transition-opacity"
-          >
-            Direction
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div />
+
+          {/* Mobile Menu */}
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTitle className="sr-only">Menu</SheetTitle>
+              <SheetTrigger asChild>
+                <button className="p-2 hover:bg-accent rounded-md">
+                  <Menu className="w-6 h-6" />
+                </button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <div className="flex flex-col gap-8 mt-8 px-6">
+                  <div className="flex flex-col gap-4 font-serif text-2xl tracking-widest uppercase">
+                    <SheetClose asChild>
+                      <Link
+                        href="/#rsvp"
+                        className="hover:opacity-70 transition-opacity"
+                      >
+                        RSVP
+                      </Link>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <Link
+                        href="/nossa-historia"
+                        className="hover:opacity-70 transition-opacity"
+                      >
+                        Nossa história
+                      </Link>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <Link
+                        href="/cerimonia"
+                        className="hover:opacity-70 transition-opacity"
+                      >
+                        A CERIMÔNIA
+                      </Link>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <Link
+                        href="/presentes"
+                        className="hover:opacity-70 transition-opacity"
+                      >
+                        PRESENTES
+                      </Link>
+                    </SheetClose>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </nav>
