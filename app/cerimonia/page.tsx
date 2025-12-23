@@ -148,7 +148,7 @@ export default function CerimoniaPage() {
           </div>
 
           {/* RSVP */}
-          <div className="border border-border rounded-lg p-8">
+          <div className="border border-border rounded-lg p-8 flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-6">
               <Mail className="w-8 h-8 text-foreground/60" />
               <h3 className="font-serif text-2xl">Confirme sua Presença</h3>
@@ -158,20 +158,11 @@ export default function CerimoniaPage() {
               <strong>1 de Maio de 2024</strong> para que possamos organizar
               todos os detalhes com carinho.
             </p>
-            <Link href="/rsvp">
+            <Link href="https://wa.me/5593991384250" target="_blank">
               <Button className="w-full bg-foreground text-background hover:bg-foreground/90 font-serif text-lg py-6">
                 Confirmar Presença
               </Button>
             </Link>
-            <p className="text-sm text-muted-foreground mt-4 text-center">
-              Ou envie um e-mail para:{" "}
-              <a
-                href="mailto:rsvp@juntosparasempre.com"
-                className="underline hover:opacity-70"
-              >
-                rsvp@juntosparasempre.com
-              </a>
-            </p>
           </div>
         </div>
 
