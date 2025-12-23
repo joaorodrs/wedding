@@ -5,7 +5,7 @@ import Image from "next/image";
 import { WeddingNav } from "@/components/wedding-nav";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Gift, ExternalLink } from "lucide-react";
+import { Gift, ExternalLink, Check } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -13,6 +13,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { toast } from "sonner";
 
 interface GiftItem {
   id: number;
@@ -255,6 +256,17 @@ const gifts: GiftItem[] = [
 export default function PresentesPage() {
   const [selectedGift, setSelectedGift] = useState<GiftItem | null>(null);
   const [filter, setFilter] = useState<string>("Todos");
+  const [loading, setLoading] = useState(false);
+  const [copiedToClipboard, setCopiedToClipboard] = useState(false);
+  const [pixData, setPixData] = useState<{
+    billingId?: string;
+    pixCode?: string;
+    pixQrCode?: string;
+    status?: string;
+    amount?: number;
+    success?: boolean;
+    error?: any;
+  } | null>(null);
 
   const categories = [
     "Todos",
@@ -267,7 +279,79 @@ export default function PresentesPage() {
   const handleGiftClick = (gift: GiftItem) => {
     if (!gift.reserved) {
       setSelectedGift(gift);
+      setPixData(null); // Reset PIX data when opening a new gift
     }
+  };
+
+  const handleCheckPaymentStatus = async () => {
+    if (!selectedGift) return;
+
+    setLoading(true);
+    try {
+      const response = await fetch(`/api/pay/pix?id=${pixData?.billingId}`, {
+        method: "GET",
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to check payment status");
+      }
+
+      if (data.status == "PAID") {
+        setPixData((curr) => ({ ...curr, success: true }));
+        return;
+      }
+
+      toast("Pagamento ainda não confirmado", {
+        description: "Aguarde alguns instantes",
+        position: "top-right",
+      });
+    } catch (error) {
+      console.error("Payment error:", error);
+      // You might want to show an error toast here
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handlePixPayment = async () => {
+    if (!selectedGift) return;
+
+    setLoading(true);
+    try {
+      const response = await fetch("/api/pay/pix", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          giftId: selectedGift.id,
+          name: selectedGift.name,
+          price: selectedGift.price,
+          description: selectedGift.description,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to create payment");
+      }
+
+      setPixData(data);
+    } catch (error) {
+      console.error("Payment error:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const copyToClipboard = (text?: string) => {
+    if (!text) return;
+    navigator.clipboard.writeText(text);
+    setCopiedToClipboard(true);
+    setTimeout(() => setCopiedToClipboard(false), 5000);
   };
 
   const formatPrice = (price: number) => {
@@ -298,9 +382,9 @@ export default function PresentesPage() {
           {categories.map((category) => (
             <Button
               key={category}
-              variant={filter === category ? "default" : "outline"}
+              variant={filter === category ? "default" : "ghost"}
               onClick={() => setFilter(category)}
-              className="tracking-widest uppercase text-xs cursor-pointer rounded-full "
+              className="tracking-widest uppercase text-xs cursor-pointer rounded-full shadow-none"
             >
               {category}
             </Button>
@@ -312,9 +396,9 @@ export default function PresentesPage() {
           {filteredGifts.map((gift) => (
             <Card
               key={gift.id}
-              className={`group overflow-hidden border-border hover:shadow-lg transition-all duration-300 py-0 ${
+              className={`group bg-transparent shadow-none overflow-hidden border-black/10 transition-all duration-300 py-0 ${
                 gift.reserved ? "opacity-50" : "cursor-pointer"
-              }`}
+              } hover:ring-1 hover:ring-black/10 hover:border-transparent hover:ring-offset-10 hover:ring-offset-background transition duration-200 focus:ring-foreground focus:ring-1`}
               onClick={() => handleGiftClick(gift)}
             >
               {/* Image */}
@@ -356,7 +440,7 @@ export default function PresentesPage() {
 
       {/* Payment Dialog */}
       <Dialog open={!!selectedGift} onOpenChange={() => setSelectedGift(null)}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md max-h-[calc(100vh-24px)] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="font-serif text-2xl">
               {selectedGift?.name}
@@ -367,50 +451,139 @@ export default function PresentesPage() {
           </DialogHeader>
 
           <div className="space-y-6 py-4">
-            {/* Price */}
-            <div className="text-center">
-              <p className="text-sm text-muted-foreground mb-1">Valor</p>
-              <p className="font-serif text-3xl">
-                {selectedGift && formatPrice(selectedGift.price)}
-              </p>
-            </div>
+            {!pixData?.success && (
+              <div className="text-center">
+                <p className="text-sm text-muted-foreground mb-1">Valor</p>
+                <p className="font-serif text-3xl">
+                  {selectedGift && formatPrice(selectedGift.price)}
+                </p>
+              </div>
+            )}
 
             {/* Payment Options */}
-            <div className="space-y-3">
-              <h4 className="font-medium text-center text-sm tracking-widest uppercase">
-                Escolha a forma de pagamento
-              </h4>
+            {!pixData ? (
+              <div className="space-y-3">
+                <h4 className="font-medium text-center text-sm tracking-widest uppercase">
+                  Escolha a forma de pagamento
+                </h4>
 
-              {/* PIX Button */}
-              <Button className="w-full h-auto py-4 flex-col gap-1" size="lg">
-                <span className="text-base font-medium">Pagar com PIX</span>
-                <span className="text-xs opacity-80">
-                  Transferência instantânea
-                </span>
-              </Button>
+                {/* PIX Button */}
+                <Button
+                  className="w-full h-auto py-4 flex-col gap-1"
+                  size="lg"
+                  onClick={handlePixPayment}
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <span className="text-base font-medium">
+                      Gerando PIX...
+                    </span>
+                  ) : (
+                    <>
+                      <span className="text-base font-medium">
+                        Pagar com PIX
+                      </span>
+                      <span className="text-xs opacity-80">
+                        Transferência instantânea
+                      </span>
+                    </>
+                  )}
+                </Button>
 
-              {/* Payment Link Button */}
-              <Button
-                variant="outline"
-                className="w-full h-auto py-4 flex-col gap-1 bg-transparent"
-                size="lg"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="text-base font-medium">
-                    Link de Pagamento
+                {/* Payment Link Button */}
+                <Button
+                  variant="outline"
+                  className="w-full h-auto py-4 flex-col gap-1 bg-transparent"
+                  size="lg"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-base font-medium">
+                      Link de Pagamento
+                    </span>
+                    <ExternalLink className="w-4 h-4" />
+                  </div>
+                  <span className="text-xs opacity-80">
+                    Cartão, boleto ou parcelado
                   </span>
-                  <ExternalLink className="w-4 h-4" />
-                </div>
-                <span className="text-xs opacity-80">
-                  Cartão, boleto ou parcelado
-                </span>
-              </Button>
-            </div>
+                </Button>
+              </div>
+            ) : (
+              <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4">
+                {!pixData.success ? (
+                  <div className="space-y-4">
+                    <div className="text-center space-y-2">
+                      <h4 className="font-medium text-sm tracking-widest uppercase text-green-600">
+                        QR Code Gerado!
+                      </h4>
+                      <p className="text-xs text-muted-foreground">
+                        Escaneie o QR Code abaixo ou copie o código PIX
+                      </p>
+                    </div>
 
-            <p className="text-xs text-muted-foreground text-center leading-relaxed">
-              Após a confirmação do pagamento, o presente será marcado como
-              reservado e você receberá um email de confirmação.
-            </p>
+                    <div className="relative flex justify-center size-60 mx-auto">
+                      <Image
+                        src={pixData.pixQrCode || "/placeholder.svg"}
+                        alt="PIX QR CODE"
+                        fill
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <p className="text-xs text-center text-muted-foreground">
+                        Código PIX Copia e Cola
+                      </p>
+                      <div className="flex gap-2">
+                        <input
+                          readOnly
+                          value={pixData.pixCode}
+                          className="flex-1 text-xs p-2 border rounded bg-muted"
+                        />
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="w-[70px]"
+                          onClick={() => copyToClipboard(pixData.pixCode)}
+                        >
+                          {copiedToClipboard ? <Check /> : "Copiar"}
+                        </Button>
+                      </div>
+                    </div>
+                    <Button
+                      className="w-full bg-green-700"
+                      size="lg"
+                      onClick={handleCheckPaymentStatus}
+                    >
+                      Já paguei <Check />
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      className="w-full text-xs"
+                      onClick={() => setPixData(null)}
+                    >
+                      Voltar para opções
+                    </Button>
+                  </div>
+                ) : (
+                  <div>
+                    <div className="text-center space-y-4">
+                      <h4 className="font-serif text-4xl tracking-widest uppercase text-green-600">
+                        Pagamento Confirmado
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        Muito obrigado por contribuir para o nosso presente!
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {!pixData?.success && (
+              <p className="text-xs text-muted-foreground text-center leading-relaxed">
+                Após a confirmação do pagamento, o presente será marcado como
+                reservado e você receberá um email de confirmação.
+              </p>
+            )}
           </div>
         </DialogContent>
       </Dialog>

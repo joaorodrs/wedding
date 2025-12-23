@@ -51,8 +51,9 @@ export default function OurHistory() {
           <h1 className="text-3xl font-serif md:text-5xl">João 6:37</h1>
           <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
             O ano de 2023 foi marcante para ambos. Thais se firmou na igreja, e
-            João, pela primeira vez, conheceu o autor da fé. Ambos relataram
-            sobre seus momentos nessa época:
+            João, pela primeira vez, conheceu o autor da fé. Nesse ano eles não
+            tiveram amizade nem nenhum tipo de contato. Ambos relataram sobre o
+            que viveram nesse ano:
           </p>
           <p className="flex mt-3 gap-x-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
             <Quote /> Thais

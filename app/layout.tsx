@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Oranienbaum, Badeen_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const _geist = Geist({ subsets: ["latin"] });
 const _oranienbaum = Oranienbaum({
@@ -46,6 +47,7 @@ export default function RootLayout({
       <body className={`font-sans antialiased`}>
         {children}
         <Analytics />
+        <Toaster />
       </body>
     </html>
   );

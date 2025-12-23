@@ -43,8 +43,6 @@ export function WeddingNav() {
             </Link>
           </div>
 
-          <div />
-
           {/* Mobile Menu */}
           <div className="md:hidden">
             <Sheet>
