@@ -20,9 +20,6 @@ export function WeddingNav() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8 text-sm tracking-widest uppercase ">
-            <Link href="/#rsvp" className="hover:opacity-70 transition-opacity">
-              RSVP
-            </Link>
             <Link
               href="/nossa-historia"
               className="hover:opacity-70 transition-opacity"
@@ -40,6 +37,12 @@ export function WeddingNav() {
               className="hover:opacity-70 transition-opacity"
             >
               PRESENTES
+            </Link>
+            <Link href="/fotos" className="hover:opacity-70 transition-opacity">
+              FOTOS
+            </Link>
+            <Link href="/#rsvp" className="hover:opacity-70 transition-opacity">
+              RSVP
             </Link>
           </div>
 

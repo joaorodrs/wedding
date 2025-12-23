@@ -129,25 +129,21 @@ export default function CerimoniaPage() {
             </div>
             <ul className="space-y-3 text-muted-foreground">
               <li className="flex items-start gap-2">
-                <span className="mt-1.5">•</span>
-                <span>Cerimônia ao ar livre com opção de área coberta</span>
+                Cerimônia ao ar livre com opção de área coberta
               </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5">•</span>
-                <span>Estacionamento disponível no local</span>
+              <li className="flex flex-col items-start">
+                <span>
+                  Sugerimos guardar os celulares durante todo o evento
+                </span>
+                <span className="text-xs">
+                  Todas as fotos serão disponibilizadas aqui neste site
+                </span>
               </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5">•</span>
-                <span>Bar aberto durante toda a festa</span>
+              <li className="flex items-start">
+                Bar aberto durante toda a festa
               </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5">•</span>
-                <span>Menu especial para crianças</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5">•</span>
-                <span>Área kids com monitores</span>
-              </li>
+              <li className="flex items-start">Menu especial para crianças</li>
+              <li className="flex items-start">Área kids com monitores</li>
             </ul>
           </div>
 
@@ -170,10 +166,10 @@ export default function CerimoniaPage() {
             <p className="text-sm text-muted-foreground mt-4 text-center">
               Ou envie um e-mail para:{" "}
               <a
-                href="mailto:rsvp@casamento.com"
+                href="mailto:rsvp@juntosparasempre.com"
                 className="underline hover:opacity-70"
               >
-                rsvp@casamento.com
+                rsvp@juntosparasempre.com
               </a>
             </p>
           </div>
