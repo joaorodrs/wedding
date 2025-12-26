@@ -52,14 +52,23 @@ export default function OurHistory() {
           <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
             O ano de 2023 foi marcante para ambos. Thais se firmou na igreja, e
             João, pela primeira vez, conheceu o autor da fé. Nesse ano eles não
-            tiveram amizade nem nenhum tipo de contato. Ambos relataram sobre o
-            que viveram nesse ano:
+            tiveram amizade nem nenhum tipo de contato. Pequenos relatos do ano
+            de 2023:
           </p>
           <p className="flex mt-3 gap-x-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
             <Quote /> Thais
           </p>
           <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
-            Seu texto
+            Em 2023 eu estava decidida a voltar para os caminhos do Senhor, me
+            sentia vazia e por mais que eu gostasse do João, não sentia que era
+            o caminho certo a seguir. Eu nem imaginava o que Deus reservava para
+            nós dois. Naquele ano eu voltei a buscar ao Senhor e me encontrei na
+            Congregação Nova Canaã, onde comecei um novo relacionamento com um
+            rapaz que me aproximou da igreja. Relacionamento esse que no futuro
+            acabou não dando certo. Mas tudo bem, porque o Senhor sempre teve o
+            controle de tudo. Esse período me aproximou verdadeiramente do
+            Senhor, me deu muitos amigos em Cristo e um lindo ministério para
+            cuidar.
           </p>
           <div className="my-4 h-[1px] w-full bg-black/10" />
           <p className="flex mt-2 gap-x-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
@@ -69,10 +78,10 @@ export default function OurHistory() {
             No final de 2023, eu vi um stories de uma amiga lendo a bíblia, e
             decidi responder perguntando por onde seria legal começar a ler.
             Sempre tive o interesse de ler mais sobre Deus, mas nunca o havia
-            feito. Ela me indicou o livro de Colossenses. Após terminar de ler,
-            no dia 22 de outubro desse mesmo ano, consegui sentir uma presença
-            inexplicável, e um sentimento de gratidão muito grande. Foi meu
-            primeiro encontro com Deus. A partir daí, comecei a orar e ler a
+            feito. Essa amiga me indicou o livro de Colossenses. Após terminar
+            de ler, no dia 22 de outubro desse mesmo ano, consegui sentir uma
+            presença inexplicável, e um sentimento de gratidão muito grande. Foi
+            meu primeiro encontro com Deus. A partir daí, comecei a orar e ler a
             bíblia, mesmo sem participar de nenhuma igreja. Um mês depois essa
             mesma amiga começou a me chamar para uma célula, e para os cultos
             também. Comecei frequentar a Igreja da Paz, e em fevereiro de 2024
@@ -83,18 +92,26 @@ export default function OurHistory() {
           <div className="flex overflow-x-auto gap-x-2">
             <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
               <Image
-                src="/god-messages.jpeg"
-                alt="God messages"
+                src="/camp.jpg"
+                alt="Camp"
                 fill
-                className="rounded-full"
+                className="rounded-full object-cover"
               />
             </div>
             <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
               <Image
-                src="/kairos.jpeg"
-                alt="Kairos"
+                src="/nara.jpg"
+                alt="Nara"
                 fill
-                className="rounded-full"
+                className="rounded-full object-cover"
+              />
+            </div>
+            <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
+              <Image
+                src="/midia.jpg"
+                alt="Midia"
+                fill
+                className="rounded-full object-cover"
               />
             </div>
           </div>
@@ -105,32 +122,26 @@ export default function OurHistory() {
       title: "2023/2024",
       content: (
         <div>
-          <h1 className="text-3xl font-serif">Um reencontro inesperado</h1>
+          <h1 className="text-3xl font-serif">Mateus 19:6b</h1>
           <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
-            No fim de 2023, os dois estavam trocando algumas mensagens, quando
-            inesperadamente se encontram na orla.
+            No final de 2023, João decide voltar a ter contato com a Thais. Após
+            algum tempo conversando por mensagem, ambos estavam na orla quando
+            "por destino" se encontraram (claramente João não andou a orla
+            inteira procurando por ela).
           </p>
           <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
-            Algumas conversas depois, sobre faculdade, vida e principalmente
-            sobre Deus. Foi retomada uma antiga amizade.
+            Depois desse dia, continuaram conversando por mensagem, sobre
+            faculdade, trabalho, vida e fé, compartilhando seus testemunhos e o
+            que Deus havia feito em suas vidas.
           </p>
           <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
-            Após João ter um verdadeiro encontro com Deus, ele convida a Thais
-            para a nova célula Kairós.
-          </p>
-          <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
-            A partir daí, em 2024, passam a se ver semanalmente.
+            No início de 2024, João convida Thais para visitar a sua célula que
+            estava iniciando. Ela aceita o convite e a partir daí eles se
+            aproximam, se encontrando todas as quintas às 22h na Av. Anísio
+            Chaves (venha participar).
           </p>
           <div className="my-4 h-[1px] w-full bg-black/10" />
           <div className="flex overflow-x-auto gap-x-2">
-            <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
-              <Image
-                src="/god-messages.jpeg"
-                alt="God messages"
-                fill
-                className="rounded-full"
-              />
-            </div>
             <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
               <Image
                 src="/kairos.jpeg"
@@ -147,27 +158,97 @@ export default function OurHistory() {
       title: "2024",
       content: (
         <div>
+          <h1 className="text-3xl font-serif">1ª Coríntios 6:20</h1>
+          <p className="mt-4 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
+            O ano de 2024 foi um ano de dúvidas, sacrifícios e direção. Marcado
+            por momentos de mudanças bruscas de direção, muitas incertezas, mas
+            principalmente pela mão de Deus no que seria nosso futuro
+            relacionamento.
+          </p>
+          <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
+            João já demonstrava interesse por Thais poucas semanas após o
+            reencontro, desde abrir a porta do carro até pequenos gestos de
+            cuidado e carinho. Thais por outro lado não estava segura do que
+            sentia e acabava não dando aberturas para que eles pudessem se
+            aproximar mais. Um dia, na sacada da casa de uma amiga, após meses
+            esperando um sinal da Thais, João deixou claro os seus sentimentos e
+            que não aceitaria mais silêncio da parte dela.
+          </p>
+          <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
+            Após isso, os dois se afastaram e se aproximaram mais ainda de Deus,
+            buscando uma resposta para o que fazer naquela situação. Ambos
+            entendiam a necessidade de estarem em um relacionamento onde a base
+            fosse os princípios de Deus. Eles queriam algo para a vida inteira,
+            então decidiram calar seus corações e ouvir a voz do Senhor.
+          </p>
+          <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
+            No dia 08/07/2024, eles saíram para conversar pela primeira vez em
+            quase 2 anos. Agora com um propósito maior,{" "}
+            <b>e com Jesus sentado à mesa</b>. A partir desse momento, se
+            iniciou um propósito em nossas vidas, e através de muitas conversas
+            difíceis e orações, fomos construindo o que Deus plantou em nossos
+            corações.
+          </p>
+          <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
+            No fim do ano, no dia 20/12/2024, João decidiu pedir Thais em
+            namoro, oficializando o relacionamento.
+          </p>
+          <div className="my-4 h-[1px] w-full bg-black/10" />
+          <div className="flex overflow-x-auto gap-x-2">
+            <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
+              <Image
+                src="/varanda.jpg"
+                alt="Varanda"
+                fill
+                className="rounded-full object-cover"
+              />
+            </div>
+            <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
+              <Image
+                src="/first-date.png"
+                alt="First date"
+                fill
+                className="rounded-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "2025",
+      content: (
+        <div>
           <h1 className="text-3xl font-serif">Dúvidas, sacrifícios, direção</h1>
           <p className="mt-4 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
-            Após algumas semanas, João já deixa claro que gostaria de orar sobre
-            um compromisso com a Thais.
+            O ano de 2024 foi um ano de dúvidas, sacrifícios e direção. Marcado
+            por momentos de mudanças bruscas de direção, muitas incertezas, mas
+            principalmente pela mão de Deus no que seria nosso futuro
+            relacionamento.
           </p>
           <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
-            Porém a resposta não é tão simples assim. Thais tinha dúvidas e
-            receios, continuaram orando.
+            João já demonstrava interesse por Thais poucas semanas após o
+            reencontro, desde abrir a porta do carro até pequenos gestos de
+            cuidado e carinho. Thais por outro lado não estava segura do que
+            sentia e acabava não dando aberturas para que eles pudessem se
+            aproximar mais. Um dia, na sacada da casa de uma amiga, após meses
+            esperando um sinal da Thais, João deixou claro os seus sentimentos e
+            que não aceitaria mais silêncio da parte dela.
           </p>
           <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
-            Um dia, na sacada da casa de uma amiga, João deixou claro os seus
-            sentimentos e que não aceitaria mais silêncio da parte dela.
+            Após isso, os dois se afastaram e se aproximaram mais ainda de Deus,
+            buscando uma resposta para o que fazer naquela situação. Ambos
+            entendiam a necessidade de estarem em um relacionamento onde a base
+            fosse os princípios de Deus. Eles queriam algo para a vida inteira,
+            então decidiram calar seus corações e ouvir a voz do Senhor.
           </p>
           <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
-            Thais então se entregou ao sentimento mas se agarrou mais forte do
-            que nunca em suas orações.
-          </p>
-          <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
-            Em 08/07/2024, saímos para conversar pela primeira vez em quase 2
-            anos. Agora com um propósito maior,{" "}
-            <b>e com Jesus sentado à mesa</b>.
+            No dia 08/07/2024, eles saíram para conversar pela primeira vez em
+            quase 2 anos. Agora com um propósito maior,{" "}
+            <b>e com Jesus sentado à mesa</b>. A partir desse momento, se
+            iniciou um propósito em nossas vidas, e através de muitas conversas
+            difíceis e orações, fomos construindo o que Deus plantou em nossos
+            corações.
           </p>
           <div className="my-4 h-[1px] w-full bg-black/10" />
           <div className="flex overflow-x-auto gap-x-2">
