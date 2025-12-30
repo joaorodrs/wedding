@@ -28,36 +28,36 @@ interface GiftItem {
 const gifts: GiftItem[] = [
   {
     id: 1,
-    name: "Jogo de Panelas Premium",
+    name: "Jogo de Panelas Tramontina",
     description: "Conjunto com 5 peças em aço inoxidável",
     price: 450,
     image: "/premium-cookware-set.jpg",
     category: "Cozinha",
-    reserved: true,
+    reserved: false,
   },
   {
     id: 2,
-    name: "Cafeteira Expresso",
-    description: "Máquina de café expresso automática",
-    price: 1200,
+    name: "Aparelho de Jantar",
+    description: "Aparelho de Jantar 20 Peças Tramontina",
+    price: 200,
     image: "/espresso-coffee-machine.png",
     category: "Cozinha",
     reserved: false,
   },
   {
     id: 3,
-    name: "Jogo de Cama King",
-    description: "100% algodão egípcio, 400 fios",
-    price: 380,
+    name: "Conjunto de talheres completo",
+    description: "Jogo de talheres inox 24 peças",
+    price: 160,
     image: "/luxury-bed-sheets.jpg",
-    category: "Quarto",
+    category: "Cozinha",
     reserved: false,
   },
   {
     id: 4,
-    name: "Liquidificador Premium",
-    description: "Alta potência com 12 velocidades",
-    price: 350,
+    name: "Geladeira Brastemp",
+    description: "Geladeira 375L Frost Free",
+    price: 2900,
     image: "/premium-blender.jpg",
     category: "Cozinha",
     reserved: false,
@@ -454,7 +454,7 @@ export default function PresentesPage() {
             {!pixData?.success && (
               <div className="text-center">
                 <p className="text-sm text-muted-foreground mb-1">Valor</p>
-                <p className="font-serif text-3xl">
+                <p className="text-3xl font-bold">
                   {selectedGift && formatPrice(selectedGift.price)}
                 </p>
               </div>

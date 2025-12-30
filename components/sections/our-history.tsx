@@ -226,30 +226,6 @@ export default function OurHistory() {
             principalmente pela mão de Deus no que seria nosso futuro
             relacionamento.
           </p>
-          <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
-            João já demonstrava interesse por Thais poucas semanas após o
-            reencontro, desde abrir a porta do carro até pequenos gestos de
-            cuidado e carinho. Thais por outro lado não estava segura do que
-            sentia e acabava não dando aberturas para que eles pudessem se
-            aproximar mais. Um dia, na sacada da casa de uma amiga, após meses
-            esperando um sinal da Thais, João deixou claro os seus sentimentos e
-            que não aceitaria mais silêncio da parte dela.
-          </p>
-          <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
-            Após isso, os dois se afastaram e se aproximaram mais ainda de Deus,
-            buscando uma resposta para o que fazer naquela situação. Ambos
-            entendiam a necessidade de estarem em um relacionamento onde a base
-            fosse os princípios de Deus. Eles queriam algo para a vida inteira,
-            então decidiram calar seus corações e ouvir a voz do Senhor.
-          </p>
-          <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
-            No dia 08/07/2024, eles saíram para conversar pela primeira vez em
-            quase 2 anos. Agora com um propósito maior,{" "}
-            <b>e com Jesus sentado à mesa</b>. A partir desse momento, se
-            iniciou um propósito em nossas vidas, e através de muitas conversas
-            difíceis e orações, fomos construindo o que Deus plantou em nossos
-            corações.
-          </p>
           <div className="my-4 h-[1px] w-full bg-black/10" />
           <div className="flex overflow-x-auto gap-x-2">
             <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
