@@ -5,13 +5,13 @@ import * as motion from "motion/react-client";
 
 export const CerimonySection = ({ hideButton }: { hideButton?: boolean }) => (
   <section className="px-6">
-    <div className="flex flex-col space-y-6">
+    <div className="flex flex-col space-y-6 md:flex-row md:justify-between">
       <div className="relative">
         <motion.h1
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="font-serif text-5xl mb-8 underline decoration-dim-green decoration-[10px] uppercase"
+          className="font-serif text-5xl mb-8 underline decoration-dim-green decoration-[10px] uppercase lg:text-9xl"
         >
           Cerimônia
         </motion.h1>
@@ -27,8 +27,8 @@ export const CerimonySection = ({ hideButton }: { hideButton?: boolean }) => (
       </div>
 
       {/* Right side - Essential info in elegant cards */}
-      <div className="space-y-8">
-        <div className="bg-olive-green text-background p-10 rounded-sm">
+      <div className="space-y-8 md:w-full md:flex md:flex-col md:items-center">
+        <div className="bg-olive-green text-background p-10 rounded-sm md:w-lg">
           <div className="flex items-start gap-6">
             <Calendar
               className="w-12 h-12 flex-shrink-0 mt-1"
@@ -44,7 +44,7 @@ export const CerimonySection = ({ hideButton }: { hideButton?: boolean }) => (
           </div>
         </div>
 
-        <div className="border-2 border-dim-green p-10 rounded-sm">
+        <div className="border-2 border-dim-green p-10 rounded-sm md:w-lg">
           <div className="flex items-start gap-6">
             <Clock className="w-12 h-12 flex-shrink-0 mt-1" strokeWidth={1} />
             <div>
@@ -59,7 +59,7 @@ export const CerimonySection = ({ hideButton }: { hideButton?: boolean }) => (
           </div>
         </div>
 
-        <div className="bg-dim-green p-10 rounded-sm">
+        <div className="bg-dim-green p-10 rounded-sm md:w-lg">
           <div className="flex items-start gap-6">
             <MapPin className="w-12 h-12 flex-shrink-0 mt-1" strokeWidth={1} />
             <div className="flex-1">

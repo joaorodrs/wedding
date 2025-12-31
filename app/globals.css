@@ -40,6 +40,7 @@
   --dim-green: #cbcda5;
   --swamp-green: #99a285;
   --olive-green: #4e4f3d;
+  --vanilla: #e5d2b8;
 }
 
 .dark {
@@ -86,6 +87,7 @@
   --color-dim-green: var(--dim-green);
   --color-swamp-green: var(--swamp-green);
   --color-olive-green: var(--olive-green);
+  --color-vanilla: var(--vanilla);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
