@@ -15,7 +15,7 @@ export function WeddingNav() {
         <div className="flex items-center justify-between">
           {/* Logo/Monogram */}
           <Link href="/" className="text-5xl font-serif">
-            J<span className="text-black/30 text-4xl">&</span>T
+            J<span className="text-swamp-green text-4xl">&</span>T
           </Link>
 
           {/* Desktop Navigation */}

@@ -380,14 +380,14 @@ export default function PresentesPage() {
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-6 mb-12">
           {categories.map((category) => (
-            <Button
+            <button
               key={category}
-              variant={filter === category ? "default" : "ghost"}
               onClick={() => setFilter(category)}
-              className="tracking-widest uppercase text-xs cursor-pointer rounded-full shadow-none"
+              data-selected={filter === category}
+              className="tracking-widest uppercase text-sm font-medium cursor-pointer px-3 py-2 data-[selected=true]:underline data-[selected=true]:underline-offset-2 data-[selected=true]:text-foreground text-muted-foreground transition decoration-dim-green decoration-[5px]"
             >
               {category}
-            </Button>
+            </button>
           ))}
         </div>
 
@@ -398,7 +398,7 @@ export default function PresentesPage() {
               key={gift.id}
               className={`group bg-transparent shadow-none overflow-hidden border-black/10 transition-all duration-300 py-0 ${
                 gift.reserved ? "opacity-50" : "cursor-pointer"
-              } hover:ring-1 hover:ring-black/10 hover:border-transparent hover:ring-offset-10 hover:ring-offset-background transition duration-200 focus:ring-foreground focus:ring-1`}
+              } hover:ring-10 hover:ring-dim-green transition duration-200 focus:ring-dim-green focus:ring-10 hover:border-dim-green`}
               onClick={() => handleGiftClick(gift)}
             >
               {/* Image */}

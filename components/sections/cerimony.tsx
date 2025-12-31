@@ -1,100 +1,85 @@
 import { Calendar, Clock, ExternalLink, MapPin } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import * as motion from "motion/react-client";
 
 export const CerimonySection = ({ hideButton }: { hideButton?: boolean }) => (
-  <section className="max-w-5xl mx-auto mb-28">
-    <div className="text-center max-w-4xl mx-auto mb-20">
-      <h1 className="font-serif text-6xl lg:text-8xl mb-6 tracking-tight">
-        Cerimônia
-      </h1>
-      <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-        Venha celebrar conosco o início de nossa jornada juntos. Será uma honra
-        compartilhar este momento especial com você.
-      </p>
-    </div>
+  <section className="px-6">
+    <div className="flex flex-col space-y-6">
+      <div className="relative">
+        <motion.h1
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="font-serif text-5xl mb-8 underline decoration-dim-green decoration-[10px] uppercase"
+        >
+          Cerimônia
+        </motion.h1>
+        <div className="max-w-md space-y-6 text-lg leading-relaxed text-muted-foreground">
+          <p className="italic text-base">
+            Um momento único, uma celebração eterna.
+          </p>
+          <p>
+            Venha testemunhar o início de nossa jornada juntos em uma cerimônia
+            que promete ser inesquecível.
+          </p>
+        </div>
+      </div>
 
-    <div className="relative">
-      <div className="grid md:grid-cols-3 gap-12 relative">
-        {/* Date Card */}
-        <div className="relative">
-          <div className="flex flex-col items-center">
-            <div className="relative mb-6 flex flex-col items-center">
-              <div className="w-32 h-32 rounded-full border-2 border-foreground/20 flex items-center justify-center bg-background">
-                <Calendar
-                  className="w-10 h-10 text-foreground/60"
-                  strokeWidth={1.5}
-                />
-              </div>
-              <div className="w-px h-8 bg-foreground/10" />
-            </div>
-            <div className="text-center">
-              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">
+      {/* Right side - Essential info in elegant cards */}
+      <div className="space-y-8">
+        <div className="bg-olive-green text-background p-10 rounded-sm">
+          <div className="flex items-start gap-6">
+            <Calendar
+              className="w-12 h-12 flex-shrink-0 mt-1"
+              strokeWidth={1}
+            />
+            <div>
+              <p className="text-xs tracking-[0.4em] uppercase opacity-70 mb-3">
                 Data
               </p>
-              <p className="font-serif text-3xl mb-1 tracking-tight">
-                20 de Junho
-              </p>
-              <p className="text-lg text-muted-foreground">2026</p>
-              <p className="text-sm text-muted-foreground mt-2 italic">
-                Sábado
-              </p>
+              <p className="font-serif text-5xl mb-2 tracking-tight">20 Jun</p>
+              <p className="text-xl opacity-90">2026 • Sábado</p>
             </div>
           </div>
         </div>
 
-        <div className="relative">
-          <div className="flex flex-col items-center">
-            <div className="relative mb-6 flex flex-col items-center">
-              <div className="w-32 h-32 rounded-full border-2 border-foreground/20 flex items-center justify-center bg-background">
-                <Clock
-                  className="w-10 h-10 text-foreground/60"
-                  strokeWidth={1.5}
-                />
-              </div>
-              <div className="w-px h-8 bg-foreground/10" />
-            </div>
-            <div className="text-center">
-              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">
+        <div className="border-2 border-dim-green p-10 rounded-sm">
+          <div className="flex items-start gap-6">
+            <Clock className="w-12 h-12 flex-shrink-0 mt-1" strokeWidth={1} />
+            <div>
+              <p className="text-xs tracking-[0.4em] uppercase text-muted-foreground mb-3">
                 Horário
               </p>
-              <p className="font-serif text-3xl mb-1 tracking-tight">16:00</p>
-              <p className="text-lg text-muted-foreground">horas</p>
-              <p className="text-sm text-muted-foreground mt-2 italic">
+              <p className="font-serif text-5xl mb-2 tracking-tight">16:00h</p>
+              <p className="text-xl text-muted-foreground">
                 Pontualidade apreciada
               </p>
             </div>
           </div>
         </div>
 
-        <div className="relative">
-          <div className="flex flex-col items-center">
-            <div className="relative mb-6 flex flex-col items-center">
-              <div className="w-32 h-32 rounded-full border-2 border-foreground/20 flex items-center justify-center bg-background">
-                <MapPin
-                  className="w-10 h-10 text-foreground/60"
-                  strokeWidth={1.5}
-                />
-              </div>
-              <div className="w-px h-8 bg-foreground/10" />
-            </div>
-            <div className="text-center">
-              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">
+        <div className="bg-dim-green p-10 rounded-sm">
+          <div className="flex items-start gap-6">
+            <MapPin className="w-12 h-12 flex-shrink-0 mt-1" strokeWidth={1} />
+            <div className="flex-1">
+              <p className="text-xs tracking-[0.4em] uppercase text-muted-foreground mb-3">
                 Local
               </p>
-              <p className="font-serif text-3xl mb-1 tracking-tight">
-                Chácara Villa Rica
+              <p className="font-serif text-4xl mb-3 tracking-tight">
+                Villa Rica
               </p>
-              <p className="text-sm text-muted-foreground max-w-[200px] leading-relaxed">
-                Rod. Everaldo Martins 135 km 7
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                Rod. Everaldo Martins km 07, 135
                 <br />
-                Santarém - PA
+                Santarém
               </p>
               <Link
-                href="/direction"
-                className="inline-block mt-3 text-xs tracking-wider uppercase text-foreground/60 hover:text-foreground transition-colors border-b border-foreground/20 hover:border-foreground/60"
+                href="https://maps.app.goo.gl/as9jAAnE1tYWaMyw6"
+                target="_blank"
+                className="inline-block text-sm tracking-wider uppercase border-b-2 border-foreground hover:opacity-60 transition-opacity"
               >
-                Ver no mapa
+                Ver no mapa →
               </Link>
             </div>
           </div>

@@ -63,12 +63,12 @@ export default function OurHistory() {
             sentia vazia e por mais que eu gostasse do João, não sentia que era
             o caminho certo a seguir. Eu nem imaginava o que Deus reservava para
             nós dois. Naquele ano eu voltei a buscar ao Senhor e me encontrei na
-            Congregação Nova Canaã, onde comecei um novo relacionamento com um
-            rapaz que me aproximou da igreja. Relacionamento esse que no futuro
-            acabou não dando certo. Mas tudo bem, porque o Senhor sempre teve o
-            controle de tudo. Esse período me aproximou verdadeiramente do
-            Senhor, me deu muitos amigos em Cristo e um lindo ministério para
-            cuidar.
+            Assembleia de Deus Congregação Nova Canaã, onde comecei um novo
+            relacionamento com um rapaz que me aproximou da igreja.
+            Relacionamento esse que no futuro acabou não dando certo. Mas tudo
+            bem, porque o Senhor sempre teve o controle de tudo. Esse período me
+            aproximou verdadeiramente do Senhor, me deu muitos amigos em Cristo
+            e um lindo ministério para cuidar.
           </p>
           <div className="my-4 h-[1px] w-full bg-black/10" />
           <p className="flex mt-2 gap-x-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
@@ -122,7 +122,7 @@ export default function OurHistory() {
       title: "2023/2024",
       content: (
         <div>
-          <h1 className="text-3xl font-serif">Mateus 19:6b</h1>
+          <h1 className="text-3xl font-serif md:text-5xl">Mateus 19:6b</h1>
           <p className="mt-2 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
             No final de 2023, João decide voltar a ter contato com a Thais. Após
             algum tempo conversando por mensagem, ambos estavam na orla quando
@@ -158,7 +158,7 @@ export default function OurHistory() {
       title: "2024",
       content: (
         <div>
-          <h1 className="text-3xl font-serif">1ª Coríntios 6:20</h1>
+          <h1 className="text-3xl font-serif md:text-5xl">1ª Coríntios 6:20</h1>
           <p className="mt-4 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
             O ano de 2024 foi um ano de dúvidas, sacrifícios e direção. Marcado
             por momentos de mudanças bruscas de direção, muitas incertezas, mas
@@ -219,27 +219,16 @@ export default function OurHistory() {
       title: "2025",
       content: (
         <div>
-          <h1 className="text-3xl font-serif">Dúvidas, sacrifícios, direção</h1>
+          <h1 className="text-3xl font-serif md:text-5xl">Versículo 7:77</h1>
           <p className="mt-4 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
-            O ano de 2024 foi um ano de dúvidas, sacrifícios e direção. Marcado
-            por momentos de mudanças bruscas de direção, muitas incertezas, mas
-            principalmente pela mão de Deus no que seria nosso futuro
-            relacionamento.
+            O ano de 2025 foi marcado por muitas coisas...
           </p>
           <div className="my-4 h-[1px] w-full bg-black/10" />
           <div className="flex overflow-x-auto gap-x-2">
             <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
               <Image
-                src="/varanda.jpg"
-                alt="Varanda"
-                fill
-                className="rounded-full object-cover"
-              />
-            </div>
-            <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
-              <Image
-                src="/first-date.png"
-                alt="First date"
+                src="/noivado.jpeg"
+                alt="Noivado"
                 fill
                 className="rounded-full object-cover"
               />

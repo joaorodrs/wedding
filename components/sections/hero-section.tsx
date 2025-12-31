@@ -102,7 +102,8 @@ const imagesItem: Variants = {
   },
   show: {
     filter: "grayscale(0)",
-    scale: 0.9,
+    height: "90%",
+    width: "83%",
     transition: {
       repeat: Infinity,
       repeatType: "mirror",
@@ -118,7 +119,7 @@ export const HeroSection = ({ hideButton }: { hideButton?: boolean }) => {
       {/* Left Column: Title and Decorative Element */}
       <div className="relative space-y-12">
         {/* Large Title */}
-        <h1 className="my-8 font-serif text-5xl lg:text-9xl font-light leading-[0.85] tracking-tight text-foreground">
+        <h1 className="my-8 font-serif text-5xl lg:text-9xl font-light leading-[0.85] tracking-tight text-foreground underline decoration-dim-green underline-offset-3 decoration-[10px] md:decoration-[15px]">
           <motion.div variants={container} initial="hidden" whileInView="show">
             <motion.span variants={item}>
               NOSSA <br className="hidden lg:block" />
@@ -181,14 +182,17 @@ export const HeroSection = ({ hideButton }: { hideButton?: boolean }) => {
         {milestones.map((milestone, index) => (
           <motion.div
             key={index}
-            className="group relative mb-20 md:mb-0 flex flex-col last-of-type:mb-0"
+            className="cursor-pointer group relative mb-20 md:mb-0 flex flex-col last-of-type:mb-0"
             variants={imagesContainer}
           >
             <motion.div
-              className="relative aspect-[9/16] w-[250px] mx-auto overflow-visible rounded-full border border-black/10"
+              className="relative aspect-[9/16] w-[250px] mx-auto overflow-visible rounded-full border border-black/10 bg-dim-green"
               variants={imagesParent}
             >
-              <motion.div className="absolute size-full" variants={imagesItem}>
+              <motion.div
+                className="absolute size-full bottom-0 left-0 right-0 m-auto top-0"
+                variants={imagesItem}
+              >
                 <Image
                   src={milestone.image || "/placeholder.svg"}
                   alt={milestone.alt}
@@ -207,9 +211,11 @@ export const HeroSection = ({ hideButton }: { hideButton?: boolean }) => {
               <h3 className="font-serif text-3xl md:text-xl lg:text-2x xl:text-3xl tracking-wide">
                 {milestone.title}
               </h3>
-              <p className="text-xs tracking-widest text-muted-foreground text-">
-                {milestone.desc}
-              </p>
+              {hideButton && (
+                <p className="text-xs tracking-widest text-muted-foreground text-">
+                  {milestone.desc}
+                </p>
+              )}
             </div>
           </motion.div>
         ))}

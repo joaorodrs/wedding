@@ -37,6 +37,9 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --dim-green: #cbcda5;
+  --swamp-green: #99a285;
+  --olive-green: #4e4f3d;
 }
 
 .dark {
@@ -80,6 +83,9 @@
   --font-mono: "Badeen Display", "serif";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-dim-green: var(--dim-green);
+  --color-swamp-green: var(--swamp-green);
+  --color-olive-green: var(--olive-green);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);

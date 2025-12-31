@@ -33,7 +33,7 @@ export const NewChapterSection = () => {
 
       <div className="text-center font-serif leading-[1.8rem] text-8xl mt-16 md:text-[180px] md:leading-normal md:flex md:items-center md:justify-center md:mt-8">
         <h1 className="">João</h1>
-        <h1 className="text-black/20 text-9xl leading-[2.8rem] md:text-[200px] md:leading-normal">
+        <h1 className="text-dim-green text-9xl leading-[2.8rem] md:text-[200px] md:leading-normal">
           &
         </h1>
         <h1 className="">Thais</h1>
