@@ -37,7 +37,15 @@ export default function OurHistory() {
                 src="/first-met.jpeg"
                 alt="First met"
                 fill
-                className="rounded-full"
+                className="rounded-full object-cover"
+              />
+            </div>
+            <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
+              <Image
+                src="/unama.jpeg"
+                alt="UNAMA"
+                fill
+                className="rounded-full object-cover"
               />
             </div>
           </div>
@@ -147,7 +155,7 @@ export default function OurHistory() {
                 src="/kairos.jpeg"
                 alt="Kairos"
                 fill
-                className="rounded-full"
+                className="rounded-full object-cover"
               />
             </div>
           </div>
