@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { WeddingNav } from "@/components/wedding-nav";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Gift, ExternalLink, Check } from "lucide-react";
+import { Gift, ExternalLink, Check, Edit } from "lucide-react";
+import CurrencyInput from "react-currency-input-field";
 import {
   Dialog,
   DialogContent,
@@ -23,6 +24,7 @@ interface GiftItem {
   image: string;
   category: string;
   reserved: boolean;
+  amountReserved?: number;
 }
 
 const gifts: GiftItem[] = [
@@ -61,6 +63,7 @@ const gifts: GiftItem[] = [
     image: "/premium-blender.jpg",
     category: "Cozinha",
     reserved: false,
+    amountReserved: 1100,
   },
   {
     id: 5,
@@ -254,6 +257,8 @@ const gifts: GiftItem[] = [
 ];
 
 export default function PresentesPage() {
+  const moneyInputRef = useRef<HTMLInputElement | null>(null);
+  const [moneyInputValue, setMoneyInputValue] = useState(0);
   const [selectedGift, setSelectedGift] = useState<GiftItem | null>(null);
   const [filter, setFilter] = useState<string>("Todos");
   const [loading, setLoading] = useState(false);
@@ -277,9 +282,14 @@ export default function PresentesPage() {
     filter === "Todos" ? gifts : gifts.filter((g) => g.category === filter);
 
   const handleGiftClick = (gift: GiftItem) => {
-    if (!gift.reserved) {
-      setSelectedGift(gift);
-      setPixData(null); // Reset PIX data when opening a new gift
+    if (gift.reserved) return;
+
+    setSelectedGift(gift);
+    setPixData(null); // Reset PIX data when opening a new gift
+
+    if (gift.amountReserved !== undefined) {
+      const giftPrice = gift.price - gift.amountReserved;
+      setMoneyInputValue(parseFloat(giftPrice.toFixed(2)));
     }
   };
 
@@ -320,6 +330,12 @@ export default function PresentesPage() {
 
     setLoading(true);
     try {
+      const price = moneyInputValue || selectedGift.price;
+
+      if (!price) {
+        return toast("Informe um valor de presente");
+      }
+
       const response = await fetch("/api/pay/pix", {
         method: "POST",
         headers: {
@@ -328,7 +344,7 @@ export default function PresentesPage() {
         body: JSON.stringify({
           giftId: selectedGift.id,
           name: selectedGift.name,
-          price: selectedGift.price,
+          price,
           description: selectedGift.description,
         }),
       });
@@ -366,7 +382,6 @@ export default function PresentesPage() {
       <WeddingNav />
 
       <main className="container mx-auto px-6 pt-32 pb-16">
-        {/* Header Section */}
         <div className="text-center mb-16 space-y-4">
           <h1 className="font-serif text-6xl md:text-7xl tracking-tight text-foreground">
             PRESENTES
@@ -377,7 +392,6 @@ export default function PresentesPage() {
           </p>
         </div>
 
-        {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-6 mb-12">
           {categories.map((category) => (
             <button
@@ -391,17 +405,15 @@ export default function PresentesPage() {
           ))}
         </div>
 
-        {/* Gifts Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredGifts.map((gift) => (
             <Card
               key={gift.id}
-              className={`group bg-transparent shadow-none overflow-hidden border-black/10 transition-all duration-300 py-0 ${
+              className={`group relative bg-transparent shadow-none overflow-hidden border-black/10 transition-all duration-300 py-0 ${
                 gift.reserved ? "opacity-50" : "cursor-pointer"
               } hover:ring-10 hover:ring-dim-green transition duration-200 focus:ring-dim-green focus:ring-10 hover:border-dim-green`}
               onClick={() => handleGiftClick(gift)}
             >
-              {/* Image */}
               <div className="relative aspect-square overflow-hidden bg-muted">
                 <Image
                   src={gift.image || "/placeholder.svg"}
@@ -418,7 +430,6 @@ export default function PresentesPage() {
                 )}
               </div>
 
-              {/* Content */}
               <div className="p-4 space-y-2">
                 <div className="flex items-start justify-between gap-2">
                   <h3 className="font-serif text-lg leading-tight text-balance">
@@ -430,16 +441,34 @@ export default function PresentesPage() {
                   {gift.description}
                 </p>
                 <p className="font-serif text-2xl text-foreground">
+                  {gift.amountReserved !== undefined && (
+                    <span className="text-lg">
+                      {formatPrice(gift.amountReserved)} de
+                    </span>
+                  )}{" "}
                   {formatPrice(gift.price)}
                 </p>
+                {gift.amountReserved !== undefined && (
+                  <div
+                    className="absolute h-2 bg-swamp-green left-0 bottom-0"
+                    style={{
+                      width: `${(gift.amountReserved / gift.price) * 100}%`,
+                    }}
+                  />
+                )}
               </div>
             </Card>
           ))}
         </div>
       </main>
 
-      {/* Payment Dialog */}
-      <Dialog open={!!selectedGift} onOpenChange={() => setSelectedGift(null)}>
+      <Dialog
+        open={!!selectedGift}
+        onOpenChange={() => {
+          setSelectedGift(null);
+          setMoneyInputValue(0);
+        }}
+      >
         <DialogContent className="sm:max-w-md max-h-[calc(100vh-24px)] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="font-serif text-2xl">
@@ -454,20 +483,43 @@ export default function PresentesPage() {
             {!pixData?.success && (
               <div className="text-center">
                 <p className="text-sm text-muted-foreground mb-1">Valor</p>
-                <p className="text-3xl font-bold">
-                  {selectedGift && formatPrice(selectedGift.price)}
-                </p>
+                {selectedGift?.amountReserved !== undefined && !pixData ? (
+                  <div className="flex flex-col items-center">
+                    <div className="relative w-[60%]">
+                      <CurrencyInput
+                        ref={moneyInputRef}
+                        placeholder="R$ 0,00"
+                        defaultValue={moneyInputValue}
+                        value={moneyInputValue}
+                        onValueChange={(_, __, values) =>
+                          setMoneyInputValue(values?.float || 0)
+                        }
+                        decimalsLimit={2}
+                        prefix="R$ "
+                        className="p-0 w-[100%] text-center text-3xl font-bold border border-dim-green rounded-sm"
+                      />
+                      <button
+                        className="absolute right-3 top-2"
+                        onClick={() => moneyInputRef.current?.focus()}
+                      >
+                        <Edit />{" "}
+                      </button>
+                    </div>
+                    <span className="text-sm text-muted-foreground">
+                      Digite aqui o valor a ser presenteado
+                    </span>
+                  </div>
+                ) : (
+                  <p className="text-3xl font-bold">
+                    {selectedGift &&
+                      formatPrice(moneyInputValue || selectedGift.price)}
+                  </p>
+                )}
               </div>
             )}
 
-            {/* Payment Options */}
             {!pixData ? (
               <div className="space-y-3">
-                <h4 className="font-medium text-center text-sm tracking-widest uppercase">
-                  Escolha a forma de pagamento
-                </h4>
-
-                {/* PIX Button */}
                 <Button
                   className="w-full h-auto py-4 flex-col gap-1"
                   size="lg"
@@ -490,7 +542,6 @@ export default function PresentesPage() {
                   )}
                 </Button>
 
-                {/* Payment Link Button */}
                 <Button
                   variant="outline"
                   className="w-full h-auto py-4 flex-col gap-1 bg-transparent"
