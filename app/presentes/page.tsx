@@ -202,15 +202,6 @@ const gifts: GiftItem[] = [
     category: "Cozinha",
     reserved: false,
   },
-  {
-    id: 18,
-    name: "Airfrier Mondial",
-    description: "Fritadeira Elétrica sem óleo 3,5L",
-    price: 230,
-    image: "/airfrier.jpeg",
-    category: "Cozinha",
-    reserved: false,
-  },
 ];
 
 export default function PresentesPage() {
