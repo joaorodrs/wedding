@@ -117,6 +117,7 @@ const gifts: GiftItem[] = [
     image: "/pratos.jpeg",
     category: "Mesa",
     reserved: false,
+    amountReserved: 0,
   },
   {
     id: 11,
@@ -181,6 +182,34 @@ const gifts: GiftItem[] = [
     category: "Casa",
     reserved: false,
     amountReserved: 200,
+  },
+  {
+    id: 18,
+    name: "Microondas Panasonic",
+    description: "Microondas 21L branco",
+    price: 450,
+    image: "/microondas.jpeg",
+    category: "Cozinha",
+    reserved: false,
+    amountReserved: 200,
+  },
+  {
+    id: 18,
+    name: "Airfrier Mondial",
+    description: "Fritadeira Elétrica sem óleo 3,5L",
+    price: 230,
+    image: "/airfrier.jpeg",
+    category: "Cozinha",
+    reserved: false,
+  },
+  {
+    id: 18,
+    name: "Airfrier Mondial",
+    description: "Fritadeira Elétrica sem óleo 3,5L",
+    price: 230,
+    image: "/airfrier.jpeg",
+    category: "Cozinha",
+    reserved: false,
   },
 ];
 

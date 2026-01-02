@@ -2,34 +2,40 @@ import { Calendar, Clock, ExternalLink, MapPin } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import * as motion from "motion/react-client";
+import { Countdown } from "../countdown";
 
 export const CerimonySection = ({ hideButton }: { hideButton?: boolean }) => (
   <section className="px-6">
-    <div className="flex flex-col space-y-6 md:flex-row md:justify-between">
-      <div className="relative">
-        <motion.h1
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="font-serif text-5xl mb-8 underline decoration-dim-green decoration-[10px] uppercase lg:text-9xl"
-        >
-          Cerimônia
-        </motion.h1>
-        <div className="max-w-md space-y-6 text-lg leading-relaxed text-muted-foreground">
-          <p className="italic text-base">
-            Um momento único, uma celebração eterna.
-          </p>
-          <p>
-            Venha testemunhar o início de nossa jornada juntos em uma cerimônia
-            que promete ser inesquecível.
-          </p>
+    <div>
+      <div className="flex flex-col space-y-6 md:flex-row md:justify-between">
+        <div className="relative">
+          <motion.h1
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="font-serif text-5xl mb-8 underline decoration-dim-green decoration-[10px] uppercase lg:text-9xl"
+          >
+            Cerimônia
+          </motion.h1>
+          <div className="max-w-md space-y-6 text-lg leading-relaxed text-muted-foreground">
+            <p className="italic text-base">
+              Um momento único, uma celebração eterna.
+            </p>
+            <p>
+              Venha testemunhar o início de nossa jornada juntos em uma
+              cerimônia que promete ser inesquecível.
+            </p>
+          </div>
+        </div>
+
+        <div className="w-full">
+          <Countdown />
         </div>
       </div>
 
-      {/* Right side - Essential info in elegant cards */}
-      <div className="space-y-8 md:w-full md:flex md:flex-col md:items-center">
-        <div className="bg-olive-green text-background p-10 rounded-sm md:w-lg">
-          <div className="flex items-start gap-6">
+      <div className="space-y-8 md:flex md:items-center md:mt-12 md:h-[300px] md:space-y-0 md:gap-x-6">
+        <div className="bg-olive-green text-background p-10 rounded-sm md:flex-1 md:h-full md:flex md:items-center">
+          <div className="flex items-start gap-6 md:items-center">
             <Calendar
               className="w-12 h-12 flex-shrink-0 mt-1"
               strokeWidth={1}
@@ -44,7 +50,7 @@ export const CerimonySection = ({ hideButton }: { hideButton?: boolean }) => (
           </div>
         </div>
 
-        <div className="border-2 border-dim-green p-10 rounded-sm md:w-lg">
+        <div className="border-2 border-dim-green p-10 rounded-sm md:flex-1 md:h-full md:flex md:items-center">
           <div className="flex items-start gap-6">
             <Clock className="w-12 h-12 flex-shrink-0 mt-1" strokeWidth={1} />
             <div>
@@ -59,7 +65,7 @@ export const CerimonySection = ({ hideButton }: { hideButton?: boolean }) => (
           </div>
         </div>
 
-        <div className="bg-dim-green p-10 rounded-sm md:w-lg">
+        <div className="bg-dim-green p-10 rounded-sm md:flex-1 md:h-full md:flex md:items-center">
           <div className="flex items-start gap-6">
             <MapPin className="w-12 h-12 flex-shrink-0 mt-1" strokeWidth={1} />
             <div className="flex-1">
