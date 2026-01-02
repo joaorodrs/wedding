@@ -368,6 +368,11 @@ export default function PresentesPage() {
                 <p className="text-sm text-muted-foreground line-clamp-2">
                   {gift.description}
                 </p>
+                {gift.amountReserved !== undefined && (
+                  <p className="font-medium text-swamp-green">
+                    Contribua para esse presente!
+                  </p>
+                )}
                 <p className="font-serif text-2xl text-foreground">
                   {gift.amountReserved !== undefined && (
                     <span className="text-lg">
