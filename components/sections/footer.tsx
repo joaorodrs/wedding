@@ -102,8 +102,7 @@ export function Footer() {
               20 de Junho, 2026
             </p>
             <p className="text-xs">
-              © 2026 Thais e João, Juntos Para Sempre. Todos os direitos
-              reservados.
+              © 2026 Thais e João. Todos os direitos reservados.
             </p>
           </div>
         </div>

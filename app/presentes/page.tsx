@@ -20,7 +20,6 @@ import { Footer } from "@/components/sections/footer";
 interface GiftItem {
   id: number;
   name: string;
-  description: string;
   price: number;
   image: string;
   category: string;
@@ -31,8 +30,7 @@ interface GiftItem {
 const gifts: GiftItem[] = [
   {
     id: 1,
-    name: "Tábua de cortar - Bamboo",
-    description: "Tábua para corte de bamboo",
+    name: "Tábua de cortar de bamboo",
     price: 59,
     image: "/tabua.jpeg",
     category: "Cozinha",
@@ -40,44 +38,23 @@ const gifts: GiftItem[] = [
   },
   {
     id: 2,
-    name: "Ventilador Arno",
-    description: "Ventilador de coluna 7 pás",
+    name: "Ventilador",
     price: 299,
-    image: "/ventilador.webp",
+    image: "/ventilador.jpeg",
     category: "Quarto",
     reserved: false,
   },
   {
     id: 3,
     name: "Jogo de Copos",
-    description: "Copos de vidro altos lapidado",
     price: 65,
     image: "/copos.jpeg",
     category: "Mesa",
     reserved: false,
   },
   {
-    id: 4,
-    name: "Xícaras e pires",
-    description: "Conjunto 12 peças xiraca e pires cerâmica",
-    price: 85,
-    image: "/xicara.jpeg",
-    category: "Mesa",
-    reserved: false,
-  },
-  {
-    id: 5,
-    name: "Faqueiro Laguna Tramontina",
-    description: "16 peças em aço",
-    price: 65,
-    image: "/colher.jpeg",
-    category: "Cozinha",
-    reserved: false,
-  },
-  {
     id: 6,
     name: "Potes Herméticos",
-    description: "Kit 10 potes herméticos de vidro tampa de bambu",
     price: 175,
     image: "/potes.jpeg",
     category: "Cozinha",
@@ -86,16 +63,14 @@ const gifts: GiftItem[] = [
   {
     id: 7,
     name: "Vassoura Rodo Esfregão",
-    description: "Mop Balde Inox 3 refil",
     price: 160,
-    image: "/mop.webp",
+    image: "/mop.jpeg",
     category: "Casa",
     reserved: false,
   },
   {
     id: 8,
     name: "Organizador de Talheres",
-    description: "Organizador de madeira 5 divisórias",
     price: 75,
     image: "/organizador.jpeg",
     category: "Cozinha",
@@ -104,7 +79,6 @@ const gifts: GiftItem[] = [
   {
     id: 9,
     name: "Ferro Vaporizador Black-Decker",
-    description: "Ferro Vaporizador Vertical 220V",
     price: 185,
     image: "/ferro.jpeg",
     category: "Quarto",
@@ -113,7 +87,6 @@ const gifts: GiftItem[] = [
   {
     id: 10,
     name: "Jogo Pratos Tramontina",
-    description: "Jogo de pratos raso, fundo e sobremesa 18 peças",
     price: 460,
     image: "/pratos.jpeg",
     category: "Mesa",
@@ -121,45 +94,8 @@ const gifts: GiftItem[] = [
     amountReserved: 0,
   },
   {
-    id: 11,
-    name: "Jogo de pratos Duralex",
-    description: "Pratos de vidro nadir opalino",
-    price: 60,
-    image: "/pratos-2.jpeg",
-    category: "Mesa",
-    reserved: false,
-  },
-  {
-    id: 12,
-    name: "Faqueiro Tramontina",
-    description: "Faqueiro búzios em aço inox 24 peças",
-    price: 85,
-    image: "/talheres.jpeg",
-    category: "Cozinha",
-    reserved: false,
-  },
-  {
-    id: 13,
-    name: "Kit Manteigueira e Queijeira",
-    description: "Porta manteiga e queijo em vidro com tampa",
-    price: 110,
-    image: "/manteigueira.jpeg",
-    category: "Mesa",
-    reserved: false,
-  },
-  {
-    id: 14,
-    name: "Panela de Pressão Tramontina",
-    description: "Panela em alumínio com revestimento interno e externo",
-    price: 160,
-    image: "/panela-pressao.jpeg",
-    category: "Cozinha",
-    reserved: false,
-  },
-  {
     id: 15,
-    name: "Jogo de Facas Bamboo",
-    description: "Jogo de facas c/ suporte 5 peças",
+    name: "Jogo de Facas",
     price: 85,
     image: "/facas.jpeg",
     category: "Cozinha",
@@ -168,8 +104,7 @@ const gifts: GiftItem[] = [
   {
     id: 16,
     name: "Liquidificador Mondial",
-    description: "Pratic Turbo III 550W",
-    price: 110,
+    price: 150,
     image: "/liquidificador.jpeg",
     category: "Cozinha",
     reserved: false,
@@ -177,7 +112,6 @@ const gifts: GiftItem[] = [
   {
     id: 17,
     name: "Colibri Rack Bancada",
-    description: "Rack 4 portas TV",
     price: 750,
     image: "/rack.webp",
     category: "Casa",
@@ -185,9 +119,8 @@ const gifts: GiftItem[] = [
     amountReserved: 200,
   },
   {
-    id: 18,
+    id: 23,
     name: "Microondas Panasonic",
-    description: "Microondas 21L branco",
     price: 450,
     image: "/microondas.jpeg",
     category: "Cozinha",
@@ -195,13 +128,90 @@ const gifts: GiftItem[] = [
     amountReserved: 200,
   },
   {
-    id: 18,
+    id: 24,
     name: "Airfrier Mondial",
-    description: "Fritadeira Elétrica sem óleo 3,5L",
     price: 230,
     image: "/airfrier.jpeg",
     category: "Cozinha",
     reserved: false,
+  },
+  {
+    id: 19,
+    name: "Máquina de Lavar",
+    price: 2400,
+    image: "/maquina-lavar.jpeg",
+    category: "Casa",
+    reserved: false,
+    amountReserved: 0,
+  },
+  {
+    id: 20,
+    name: "2kg de picanha",
+    price: 140,
+    image: "/picanha.jpeg",
+    category: "Cozinha",
+    reserved: false,
+  },
+  {
+    id: 26,
+    name: "Fogão 4 bocas",
+    price: 800,
+    image: "/fogao.jpeg",
+    category: "Cozinha",
+    reserved: false,
+    amountReserved: 0,
+  },
+  {
+    id: 21,
+    name: "Panelas Brinox",
+    price: 400,
+    image: "/panelas.jpeg",
+    category: "Cozinha",
+    reserved: false,
+    amountReserved: 0,
+  },
+  {
+    id: 22,
+    name: "Geladeira",
+    price: 2800,
+    image: "/geladeira.jpeg",
+    category: "Cozinha",
+    reserved: false,
+    amountReserved: 0,
+  },
+  {
+    id: 27,
+    name: "Sofá",
+    price: 1500,
+    image: "/sofa.jpeg",
+    category: "Casa",
+    reserved: false,
+    amountReserved: 0,
+  },
+  {
+    id: 28,
+    name: "Jogo de cama",
+    price: 60,
+    image: "/jogo-cama.jpeg",
+    category: "Quarto",
+    reserved: false,
+  },
+  {
+    id: 29,
+    name: "Lingerie sexy para a noite de núpcias",
+    price: 60,
+    image: "/calcola.webp",
+    category: "Casal",
+    reserved: false,
+  },
+  {
+    id: 30,
+    name: "2 passagens para a lua (lua de mel)",
+    price: 560,
+    image: "/lua-de-mel.jpeg",
+    category: "Casal",
+    reserved: false,
+    amountReserved: 0,
   },
 ];
 
@@ -294,7 +304,6 @@ export default function PresentesPage() {
           giftId: selectedGift.id,
           name: selectedGift.name,
           price,
-          description: selectedGift.description,
         }),
       });
 
@@ -380,15 +389,12 @@ export default function PresentesPage() {
               </div>
 
               <div className="p-4 space-y-2">
-                <div className="flex items-start justify-between gap-2">
+                <div className="flex items-start justify-between gap-2 mb-4">
                   <h3 className="font-serif text-lg leading-tight text-balance">
                     {gift.name}
                   </h3>
                   <Gift className="w-5 h-5 text-muted-foreground flex-shrink-0" />
                 </div>
-                <p className="text-sm text-muted-foreground line-clamp-2">
-                  {gift.description}
-                </p>
                 {gift.amountReserved !== undefined && (
                   <p className="font-medium text-swamp-green">
                     Contribua para esse presente!
@@ -430,9 +436,6 @@ export default function PresentesPage() {
             <DialogTitle className="font-serif text-2xl">
               {selectedGift?.name}
             </DialogTitle>
-            <DialogDescription className="text-base">
-              {selectedGift?.description}
-            </DialogDescription>
           </DialogHeader>
 
           <div className="space-y-6 py-4">
