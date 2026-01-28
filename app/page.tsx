@@ -2,6 +2,7 @@ import { WeddingNav } from "@/components/wedding-nav";
 import { HeroSection } from "@/components/sections/hero-section";
 import { NewChapterSection } from "@/components/sections/new-chapter-section";
 import { CerimonySection } from "@/components/sections/cerimony";
+import { Footer } from "@/components/sections/footer";
 
 export default function HomePage() {
   return (
@@ -18,6 +19,8 @@ export default function HomePage() {
         <div className="h-[1px] w-full bg-black/10 mt-10 mb-20" />
 
         <CerimonySection />
+
+        <Footer />
       </main>
     </div>
   );

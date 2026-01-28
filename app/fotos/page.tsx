@@ -8,6 +8,7 @@ import { WeddingNav } from "@/components/wedding-nav";
 import { Upload, Heart, Download } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Footer } from "@/components/sections/footer";
 
 interface Photo {
   id: string;
@@ -123,8 +124,8 @@ export default function PhotosPage() {
         <div className="max-w-3xl mb-16">
           <div className="inline-block mb-4">
             <div className="flex items-center gap-3">
-              <div className="w-16 h-[1px] bg-foreground/30" />
-              <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground">
+              <div className="w-16 h-[1px] bg-dim-green" />
+              <span className="text-xs tracking-[0.3em] uppercase text-swamp-green">
                 Memórias
               </span>
             </div>
@@ -261,6 +262,8 @@ export default function PhotosPage() {
             <Upload className="ml-2 w-5 h-5 group-hover:translate-y-[-2px] transition-transform" />
           </Button>
         </div>
+
+        <Footer />
       </main>
 
       {/* Photo Detail Modal */}

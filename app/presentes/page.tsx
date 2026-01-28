@@ -15,6 +15,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
+import { Footer } from "@/components/sections/footer";
 
 interface GiftItem {
   id: number;
@@ -413,6 +414,8 @@ export default function PresentesPage() {
             </Card>
           ))}
         </div>
+
+        <Footer />
       </main>
 
       <Dialog

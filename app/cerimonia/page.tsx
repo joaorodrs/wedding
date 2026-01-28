@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CerimonySection } from "@/components/sections/cerimony";
+import { Footer } from "@/components/sections/footer";
 
 export default function CerimoniaPage() {
   const timeline = [
@@ -217,7 +218,11 @@ export default function CerimoniaPage() {
                   Sua confirmação nos ajuda a preparar cada detalhe com o
                   cuidado que você merece.
                 </p>
-                <Link href="/rsvp" className="block mb-6">
+                <Link
+                  href="https://wa.me/5593991384250?text=Ol%C3%A1!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20no%20casamento.%20Meu%20nome%20%C3%A9%3A"
+                  target="_blank"
+                  className="block mb-6"
+                >
                   <Button className="w-full bg-background text-foreground hover:bg-background/90 font-serif text-xl py-7 rounded-sm">
                     Confirmar Presença
                   </Button>
@@ -226,6 +231,8 @@ export default function CerimoniaPage() {
             </div>
           </div>
         </div>
+
+        <Footer />
       </main>
     </div>
   );

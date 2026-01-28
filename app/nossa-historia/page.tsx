@@ -1,3 +1,4 @@
+import { Footer } from "@/components/sections/footer";
 import { HeroSection } from "@/components/sections/hero-section";
 import OurHistory from "@/components/sections/our-history";
 import { WeddingNav } from "@/components/wedding-nav";
@@ -11,6 +12,8 @@ export default function OurHistoryPage() {
         <HeroSection hideButton />
 
         <OurHistory />
+
+        <Footer />
       </main>
     </div>
   );
