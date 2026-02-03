@@ -73,15 +73,15 @@ export const CerimonySection = ({ hideButton }: { hideButton?: boolean }) => (
                 Local
               </p>
               <p className="font-serif text-4xl mb-3 tracking-tight">
-                Villa Rica
+                Espaço Garden Fest
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                Rod. Everaldo Martins km 07, 135
+                Av. Mal. Rondon, 3137 - Central
                 <br />
                 Santarém
               </p>
               <Link
-                href="https://maps.app.goo.gl/as9jAAnE1tYWaMyw6"
+                href="https://maps.app.goo.gl/MKqivXQmuHUhdAvWA"
                 target="_blank"
                 className="inline-block text-sm tracking-wider uppercase border-b-2 border-foreground hover:opacity-60 transition-opacity"
               >

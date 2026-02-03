@@ -145,22 +145,22 @@ export default function CerimoniaPage() {
 
         <div className="relative h-[60vh] lg:h-[70vh] mb-32">
           <Image
-            src="/elegant-wedding-venue-outdoor-garden-ceremony.jpg"
+            src="/gardenfest.png"
             alt="Local da cerimônia"
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/50 to-foreground/20" />
           <div className="absolute inset-0 flex items-end">
             <div className="container mx-auto px-6 pb-16">
               <div className="max-w-3xl">
                 <p className="font-serif text-5xl lg:text-6xl text-white mb-4 leading-tight">
-                  Villa Toscana
+                  Espaço Garden Fest
                 </p>
                 <p className="text-xl text-white/90 leading-relaxed">
-                  Um cenário deslumbrante em meio a jardins e arquitetura
-                  clássica italiana, o lugar perfeito para começarmos nossa
-                  história.
+                  Um espaço verde amplo deslumbrante para o encontro das nossas
+                  grandes famílias e dos mais próximos amigos, o lugar perfeito
+                  para começarmos nossa história.
                 </p>
               </div>
             </div>
