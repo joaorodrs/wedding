@@ -1,7 +1,7 @@
 "use client";
 
 import { WeddingNav } from "@/components/wedding-nav";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Check, ChevronDown, Minus, Plus, Heart, Loader2 } from "lucide-react";
 import useSWR from "swr";
 import { useSearchParams } from "next/navigation";
@@ -17,6 +17,14 @@ interface Guest {
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function RSVPPage() {
+  return (
+    <Suspense>
+      <RSVPPageContent />
+    </Suspense>
+  );
+}
+
+export function RSVPPageContent() {
   const searchParams = useSearchParams();
   const guestId = searchParams.get("c");
   const {
