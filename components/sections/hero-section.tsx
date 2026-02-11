@@ -26,7 +26,7 @@ const milestones = [
     number: "03",
     date: "20 NOV 2025",
     title: "A CONFIRMAÇÃO",
-    desc: "Exatamente um ano depois do pedido de namoro, veio a confirmação daquilo que já sábíamos: estávamos prontos para dar o próximo passo juntos, rumo ao altar - ô muié ruim de fazer surpresa",
+    desc: "Exatamente um ano depois do pedido de namoro, veio a confirmação daquilo que já sábíamos: estávamos prontos para dar o próximo passo juntos, rumo ao altar",
     image: "/noivado.jpeg",
     alt: "Noivado",
   },

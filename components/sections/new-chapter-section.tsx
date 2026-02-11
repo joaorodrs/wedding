@@ -46,11 +46,7 @@ export const NewChapterSection = () => {
       </p>
 
       <div className="w-full flex items-center justify-center mt-12">
-        <Link
-          href="https://wa.me/5593991384250?text=Ol%C3%A1!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20no%20casamento.%20Meu%20nome%20%C3%A9%3A"
-          target="_blank"
-          className="block mb-6"
-        >
+        <Link href="/rsvp" className="block mb-6">
           <button className="cursor-pointer bg-foreground text-white py-3 px-4 font-serif text-2xl rounded-full md:mx-auto md:px-8 md:text-3xl hover:ring-1 hover:ring-black/10 hover:ring-offset-10 hover:ring-offset-background transition duration-200 focus:ring-foreground focus:ring-1">
             Confirme sua presença
           </button>

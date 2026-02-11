@@ -68,7 +68,7 @@ export function Footer() {
                 FOTOS
               </Link>
               <Link
-                href="/#rsvp"
+                href="/rsvp"
                 className="hover:opacity-70 transition-opacity"
               >
                 RSVP

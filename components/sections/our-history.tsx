@@ -227,9 +227,98 @@ export default function OurHistory() {
       title: "2025",
       content: (
         <div>
-          <h1 className="text-3xl font-serif md:text-5xl">Versículo 7:77</h1>
+          <h1 className="text-3xl font-serif md:text-5xl">João 15:7</h1>
           <p className="mt-4 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
-            O ano de 2025 foi marcado por muitas coisas...
+            Em 2025, o relacionamento de João e Thais se fortaleceu cada vez
+            mais, criando raízes profundas no amor, e na rocha inabalável que é
+            Jesus e Sua Palavra. Foi um ano onde puderam conhecer um ao outro
+            ainda mais, já os preparando para tornarem-se um casal, e usando um
+            para forjar a vida do outro.
+          </p>
+          <p className="mt-4 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
+            Crescendo em fé e em amor, foram recebendo confirmações de que de
+            fato Deus tinha planos ainda maiores para serem cumpridos através da
+            vida deles. Servindo cada um em sua igreja local, foi nesse ano que
+            Thais decidiu se aproximar ainda mais da célula do João, se fazendo
+            disponível para receber e servir com instrução, conselho e cuidado
+            com todos.
+          </p>
+          <p className="mt-4 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
+            No aniversário de namoro dos dois, no dia 20/11/2025, João decidiu
+            pedir Thais em casamento, oficializando o compromisso de ambos
+            diante de Deus de subir no altar para se tornarem um só. E então, a
+            partir desse momento, começaram a planejar o casamento, e a vida que
+            teriam juntos, sempre buscando a direção de Deus para cada passo.
+          </p>
+          <div className="my-4 h-[1px] w-full bg-black/10" />
+          <div className="flex overflow-x-auto gap-x-2">
+            <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
+              <Image
+                src="/camp-25.jpg"
+                alt="Camp 2025"
+                fill
+                className="rounded-full object-cover"
+              />
+            </div>
+            <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
+              <Image
+                src="/take-risks.jpg"
+                alt="Take Risks"
+                fill
+                className="rounded-full object-cover"
+              />
+            </div>
+            <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
+              <Image
+                src="/gala.jpg"
+                alt="Aniversario Tia"
+                fill
+                className="rounded-full object-cover"
+              />
+            </div>
+            <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
+              <Image
+                src="/noivado.jpeg"
+                alt="Noivado"
+                fill
+                className="rounded-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "2026",
+      content: (
+        <div>
+          <h1 className="text-3xl font-serif md:text-5xl">Apocalipse 19:7</h1>
+          <p className="mt-4 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
+            O casamento é mais do que um simples documento, ou uma decisão
+            tomada por um casal. Ele é uma aliança sagrada que aponta pra algo
+            muito maior. Esse algo maior não é carro, não é casa, nem dinheiro e
+            nem sequer filhos, esse algo maior é o próprio Deus.
+          </p>
+          <p className="mt-4 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
+            O casamento é um reflexo do relacionamento de Cristo com a igreja,
+            onde Ele é o noivo e a igreja é a noiva. E assim como Cristo amou a
+            igreja e se entregou por ela, dando sua própria vida, o marido deve
+            amar sua esposa e se entregar sem ressalvas por ela. E assim como a
+            igreja se submete a Cristo, a esposa deve se submeter ao seu marido.
+            O casamento é uma oportunidade de viver um amor sacrificial, onde
+            ambos os cônjuges se doam um ao outro, buscando sempre o bem do
+            outro acima do seu próprio bem.
+          </p>
+          <p className="mt-4 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
+            O ano de 2026 é o início de uma nova estação na vida do João e da
+            Thais, onde não serão mais dois, mas sim uma só carne. Assim como
+            Cristo e a Igreja no fim dos tempos se unirão para sempre, João e
+            Thais serão um reflexo ainda imperfeito dessa união, um vislumbre do
+            que há de vir.
+          </p>
+          <p className="mt-4 text-xs font-normal text-muted-foreground tracking-widest md:text-base">
+            Será uma honra ter você nesse dia tão especial, onde celebraremos o
+            <b> amor, a fé e a união</b>.
           </p>
           <div className="my-4 h-[1px] w-full bg-black/10" />
           <div className="flex overflow-x-auto gap-x-2">

@@ -14,17 +14,17 @@ export default function CerimoniaPage() {
       description: "Recepção com bebidas de boas-vindas",
     },
     {
-      time: "16:30",
+      time: "17:00",
       event: "Início da Cerimônia",
       description: "Entrada dos noivos e cerimônia de casamento",
     },
     {
-      time: "17:30",
-      event: "Coquetel",
-      description: "Drinks e canapés no jardim",
+      time: "19:00",
+      event: "Coquetel Italiano",
+      description: "Pizza e aperitivos para os convidados",
     },
     {
-      time: "19:00",
+      time: "19:30",
       event: "Jantar",
       description: "Jantar servido aos convidados",
     },
@@ -36,7 +36,7 @@ export default function CerimoniaPage() {
     {
       time: "21:30",
       event: "Festa",
-      description: "Dança e celebração até às 2h",
+      description: "Dança e celebração até às 1h",
     },
   ];
 
@@ -204,7 +204,6 @@ export default function CerimoniaPage() {
                 </ul>
               </div>
 
-              {/* RSVP */}
               <div className="bg-foreground text-background p-12 rounded-sm">
                 <div className="flex items-center gap-4 mb-8">
                   <Mail className="w-10 h-10" strokeWidth={1} />
@@ -213,16 +212,12 @@ export default function CerimoniaPage() {
                 <p className="text-lg mb-3 leading-relaxed opacity-90">
                   Confirme sua presença até
                 </p>
-                <p className="font-serif text-4xl mb-8">10 de Maio</p>
+                <p className="font-serif text-4xl mb-8">20 de Maio</p>
                 <p className="mb-8 text-base leading-relaxed opacity-80">
                   Sua confirmação nos ajuda a preparar cada detalhe com o
                   cuidado que você merece.
                 </p>
-                <Link
-                  href="https://wa.me/5593991384250?text=Ol%C3%A1!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20no%20casamento.%20Meu%20nome%20%C3%A9%3A"
-                  target="_blank"
-                  className="block mb-6"
-                >
+                <Link href="/rsvp" className="block mb-6">
                   <Button className="w-full bg-background text-foreground hover:bg-background/90 font-serif text-xl py-7 rounded-sm">
                     Confirmar Presença
                   </Button>

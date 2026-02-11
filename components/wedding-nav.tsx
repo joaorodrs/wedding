@@ -41,7 +41,7 @@ export function WeddingNav() {
             <Link href="/fotos" className="hover:opacity-70 transition-opacity">
               FOTOS
             </Link>
-            <Link href="/#rsvp" className="hover:opacity-70 transition-opacity">
+            <Link href="/rsvp" className="hover:opacity-70 transition-opacity">
               RSVP
             </Link>
           </div>
@@ -60,7 +60,7 @@ export function WeddingNav() {
                   <div className="flex flex-col gap-4 font-serif text-2xl tracking-widest uppercase">
                     <SheetClose asChild>
                       <Link
-                        href="/#rsvp"
+                        href="/rsvp"
                         className="hover:opacity-70 transition-opacity"
                       >
                         RSVP
