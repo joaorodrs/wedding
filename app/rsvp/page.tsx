@@ -222,7 +222,7 @@ export function RSVPPageContent() {
                     ) : error ? (
                       "Erro ao carregar convidados"
                     ) : (
-                      selectedGuestName || "Seu nome completo..."
+                      selectedGuestName || "Seu nome..."
                     )}
                   </span>
                   {!isLoading && (
@@ -261,6 +261,7 @@ export function RSVPPageContent() {
                               setSelectedGuest(guest);
                               setIsDropdownOpen(false);
                               setSearchQuery("");
+                              setCompanions(0);
                             }}
                             className={`w-full text-left px-6 py-4 transition-colors flex items-center justify-between group ${
                               selectedGuestId === guest.id
