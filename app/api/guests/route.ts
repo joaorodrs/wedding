@@ -28,7 +28,7 @@ export async function PATCH(request: Request) {
 
   const { data, error } = await supabase
     .from("guests")
-    .update({ confirmed, confirmedCompanion: companions })
+    .update({ confirmed, confirmed_companion: companions })
     .eq("id", id)
     .select()
     .single();

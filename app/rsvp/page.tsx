@@ -10,8 +10,8 @@ interface Guest {
   id: string;
   name: string;
   confirmed: boolean;
-  maxCompanion: number;
-  confirmedCompanion: number;
+  max_companion: number;
+  confirmed_companion: number;
 }
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -111,12 +111,13 @@ export function RSVPPageContent() {
 
               <p className="text-xl text-muted-foreground leading-relaxed max-w-lg mb-4">
                 Sua presença foi confirmada com sucesso.
-                {(companions || selectedGuest?.confirmedCompanion || 0) > 0 && (
+                {(companions || selectedGuest?.confirmed_companion || 0) >
+                  0 && (
                   <span>
                     {" "}
                     Você e seus{" "}
                     <strong className="text-foreground">
-                      {companions || selectedGuest?.confirmedCompanion}{" "}
+                      {companions || selectedGuest?.confirmed_companion}{" "}
                       acompanhante{companions > 1 ? "s" : ""}
                     </strong>{" "}
                     estão na lista.
@@ -282,61 +283,63 @@ export function RSVPPageContent() {
               </div>
             </div>
 
-            {/* Step 2 - Companions */}
-            <div className="mb-16">
-              <div className="flex items-center gap-6 mb-10">
-                <span className="font-serif text-8xl text-foreground/10 leading-none">
-                  02
-                </span>
-                <div>
-                  <h2 className="font-serif text-3xl tracking-tight mb-2">
-                    Acompanhantes
-                  </h2>
-                  <p className="text-muted-foreground">
-                    Quantas pessoas levará com voce?
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-12">
-                <button
-                  onClick={() => setCompanions((curr) => curr - 1)}
-                  className="w-16 h-16 rounded-full border-2 border-foreground/20 hover:border-foreground flex items-center justify-center transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                  disabled={companions === 0}
-                >
-                  <Minus className="w-5 h-5" strokeWidth={1.5} />
-                </button>
-
-                <div className="text-center">
-                  <span className="font-serif text-8xl tracking-tight block leading-none">
-                    {companions}
+            {(selectedGuest?.max_companion || 0) > 0 && (
+              <div className="mb-16">
+                <div className="flex items-center gap-6 mb-10">
+                  <span className="font-serif text-8xl text-foreground/10 leading-none">
+                    02
                   </span>
-                  <span className="text-sm text-muted-foreground tracking-[0.2em] uppercase mt-3 block">
-                    {companions === 0
-                      ? "somente eu"
-                      : companions === 1
-                        ? "acompanhante"
-                        : "acompanhantes"}
-                  </span>
+                  <div>
+                    <h2 className="font-serif text-3xl tracking-tight mb-2">
+                      Acompanhantes
+                    </h2>
+                    <p className="text-muted-foreground">
+                      Quantas pessoas levará com voce?
+                    </p>
+                  </div>
                 </div>
 
-                <button
-                  onClick={() => setCompanions((curr) => curr + 1)}
-                  className="w-16 h-16 rounded-full border-2 border-foreground/20 hover:border-foreground flex items-center justify-center transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                  disabled={
-                    !selectedGuest || selectedGuest.maxCompanion === companions
-                  }
-                >
-                  <Plus className="w-5 h-5" strokeWidth={1.5} />
-                </button>
+                <div className="flex items-center gap-12">
+                  <button
+                    onClick={() => setCompanions((curr) => curr - 1)}
+                    className="w-16 h-16 rounded-full border-2 border-foreground/20 hover:border-foreground flex items-center justify-center transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                    disabled={companions === 0}
+                  >
+                    <Minus className="w-5 h-5" strokeWidth={1.5} />
+                  </button>
+
+                  <div className="text-center">
+                    <span className="font-serif text-8xl tracking-tight block leading-none">
+                      {companions}
+                    </span>
+                    <span className="text-sm text-muted-foreground tracking-[0.2em] uppercase mt-3 block">
+                      {companions === 0
+                        ? "somente eu"
+                        : companions === 1
+                          ? "acompanhante"
+                          : "acompanhantes"}
+                    </span>
+                  </div>
+
+                  <button
+                    onClick={() => setCompanions((curr) => curr + 1)}
+                    className="w-16 h-16 rounded-full border-2 border-foreground/20 hover:border-foreground flex items-center justify-center transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                    disabled={
+                      !selectedGuest ||
+                      selectedGuest.max_companion === companions
+                    }
+                  >
+                    <Plus className="w-5 h-5" strokeWidth={1.5} />
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Step 3 - Confirm */}
             <div className="mb-16">
               <div className="flex items-center gap-6 mb-10">
                 <span className="font-serif text-8xl text-foreground/10 leading-none">
-                  03
+                  0{(selectedGuest?.max_companion || 0) > 0 ? "3" : "2"}
                 </span>
                 <div>
                   <h2 className="font-serif text-3xl tracking-tight mb-2">
@@ -359,12 +362,14 @@ export function RSVPPageContent() {
                       {selectedGuestName}
                     </span>
                   </div>
-                  <div className="flex items-baseline justify-between">
-                    <span className="text-sm tracking-[0.2em] uppercase text-muted-foreground">
-                      Acompanhantes
-                    </span>
-                    <span className="font-serif text-xl">{companions}</span>
-                  </div>
+                  {(selectedGuest?.max_companion || 0) > 0 && (
+                    <div className="flex items-baseline justify-between">
+                      <span className="text-sm tracking-[0.2em] uppercase text-muted-foreground">
+                        Acompanhantes
+                      </span>
+                      <span className="font-serif text-xl">{companions}</span>
+                    </div>
+                  )}
                   <div className="flex items-baseline justify-between">
                     <span className="text-sm tracking-[0.2em] uppercase text-muted-foreground">
                       Total de pessoas
