@@ -158,7 +158,7 @@ export function RSVPPageContent() {
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-16 h-px bg-foreground/40" />
                   <span className="text-xs tracking-[0.4em] uppercase text-muted-foreground">
-                    Confirme até 20 de Maio
+                    Confirme até 05 de Maio
                   </span>
                 </div>
                 <h1 className="font-serif text-[11vw] lg:text-[8rem] leading-[0.85] tracking-tight">
@@ -294,7 +294,7 @@ export function RSVPPageContent() {
                       Acompanhantes
                     </h2>
                     <p className="text-muted-foreground">
-                      Quantas pessoas levará com voce?
+                      Quantas pessoas levará com você?
                     </p>
                   </div>
                 </div>

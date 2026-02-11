@@ -212,7 +212,7 @@ export default function CerimoniaPage() {
                 <p className="text-lg mb-3 leading-relaxed opacity-90">
                   Confirme sua presença até
                 </p>
-                <p className="font-serif text-4xl mb-8">20 de Maio</p>
+                <p className="font-serif text-4xl mb-8">05 de Maio</p>
                 <p className="mb-8 text-base leading-relaxed opacity-80">
                   Sua confirmação nos ajuda a preparar cada detalhe com o
                   cuidado que você merece.
