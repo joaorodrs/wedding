@@ -10,10 +10,6 @@ const _oranienbaum = Oranienbaum({
   subsets: ["latin"],
   weight: ["400"],
 });
-const _badeenDisplay = Badeen_Display({
-  subsets: ["latin"],
-  weight: ["400"],
-});
 
 export const metadata: Metadata = {
   title: "J&T - Save the Date",

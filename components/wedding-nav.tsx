@@ -7,6 +7,7 @@ import {
   SheetClose,
   SheetTitle,
 } from "@/components/ui/sheet";
+import Image from "next/image";
 
 export function WeddingNav() {
   return (
@@ -15,7 +16,7 @@ export function WeddingNav() {
         <div className="flex items-center justify-between">
           {/* Logo/Monogram */}
           <Link href="/" className="text-5xl font-serif">
-            J<span className="text-swamp-green text-4xl">&</span>T
+            <Image src="/brazao.png" alt="J&T" width={50} height={100} />
           </Link>
 
           {/* Desktop Navigation */}
