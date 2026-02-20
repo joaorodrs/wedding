@@ -31,11 +31,8 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function PresentesPage() {
   const moneyInputRef = useRef<HTMLInputElement | null>(null);
-  const {
-    data: gifts = [],
-    isLoading,
-    error,
-  } = useSWR<GiftItem[]>("/api/gifts", fetcher);
+  const { data = [], isLoading } = useSWR<GiftItem[]>("/api/gifts", fetcher);
+  const gifts = data.map((item) => ({ ...item, price: item.price / 100 }));
   const [moneyInputValue, setMoneyInputValue] = useState(0);
   const [selectedGift, setSelectedGift] = useState<GiftItem | null>(null);
   const [filter, setFilter] = useState<string>("Todos");
@@ -235,7 +232,7 @@ export default function PresentesPage() {
                       {formatPrice(gift.amount_reserved)} de
                     </span>
                   )}{" "}
-                  {formatPrice(gift.price / 100)}
+                  {formatPrice(gift.price)}
                 </p>
                 {gift.amount_reserved !== null && (
                   <div
@@ -328,22 +325,6 @@ export default function PresentesPage() {
                       </span>
                     </>
                   )}
-                </Button>
-
-                <Button
-                  variant="outline"
-                  className="w-full h-auto py-4 flex-col gap-1 bg-transparent"
-                  size="lg"
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="text-base font-medium">
-                      Link de Pagamento
-                    </span>
-                    <ExternalLink className="w-4 h-4" />
-                  </div>
-                  <span className="text-xs opacity-80">
-                    Cartão, boleto ou parcelado
-                  </span>
                 </Button>
               </div>
             ) : (
