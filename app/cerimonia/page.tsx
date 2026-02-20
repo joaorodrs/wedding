@@ -101,12 +101,7 @@ export default function CerimoniaPage() {
                 </h2>
                 <div className="space-y-6 text-lg leading-relaxed max-w-2xl">
                   <p className="text-muted-foreground">
-                    <strong className="text-foreground">Cavalheiros:</strong>{" "}
-                    Terno completo ou blazer com calça social.
-                  </p>
-                  <p className="text-muted-foreground">
-                    <strong className="text-foreground">Damas:</strong> Vestido
-                    longo ou midi, ou conjunto elegante.
+                    Traje social tanto para as damas quanto para os cavalheiros.
                   </p>
                 </div>
               </div>

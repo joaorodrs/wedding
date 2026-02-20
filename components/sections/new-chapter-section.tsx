@@ -11,16 +11,17 @@ export const NewChapterSection = () => {
   return (
     <section>
       <div className="relative">
-        <div className="relative aspect-[3/4] overflow-hidden md:aspect-[21/9]">
+        <div className="relative aspect-[3/4] overflow-hidden md:aspect-[21/9] pt-40">
           <motion.div
-            className="relative size-full h-[200vh]"
+            className="relative size-full h-[100vh] md:h-[140vh]"
             style={{ translateY }}
           >
             <Image
-              src="/capa-2.jpg"
+              src="/capa-inicio.webp"
               alt="Pre-wedding photo"
               fill
-              className="object-cover"
+              className="object-cover object-top"
+              unoptimized
             />
           </motion.div>
         </div>
@@ -34,16 +35,16 @@ export const NewChapterSection = () => {
 
       <div className="flex flex-col items-center mt-16 md:mt-8">
         <Image src="/brazao.png" alt="J&T" width={150} height={150} />
-        <div className="text-center font-serif leading-[1.8rem] text-8xl md:text-[180px] md:leading-normal md:flex md:items-center md:justify-center">
+        <div className="mt-12 text-center md:mt-0 font-serif leading-[1.8rem] text-8xl md:text-[180px] md:leading-normal md:flex md:items-center md:justify-center">
           <h1 className="">João</h1>
-          <h1 className="text-dim-green text-9xl leading-[2.8rem] md:text-[200px] md:leading-normal">
+          <h1 className="text-swamp-green text-9xl leading-[2.8rem] md:text-[200px] md:leading-normal">
             &
           </h1>
           <h1 className="">Thais</h1>
         </div>
       </div>
 
-      <p className="mt-12 text-center text-lg md:text-xl max-w-3xl mx-auto md:max-w-2xl md:mt-0">
+      <p className="mt-12 px-2 text-center text-lg md:text-xl max-w-3xl mx-auto md:max-w-2xl md:mt-0">
         Uma nova história está sendo escrita pelas mãos de Deus, e somos
         honrados pela sua presença em um momento tão especial!
       </p>

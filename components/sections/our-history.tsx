@@ -324,8 +324,24 @@ export default function OurHistory() {
           <div className="flex overflow-x-auto gap-x-2">
             <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
               <Image
-                src="/noivado.jpeg"
-                alt="Noivado"
+                src="/casamento-1.webp"
+                alt="Pre-wedding 1"
+                fill
+                className="rounded-full object-cover"
+              />
+            </div>
+            <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
+              <Image
+                src="/casamento-2.webp"
+                alt="Pre-wedding 2"
+                fill
+                className="rounded-full object-cover"
+              />
+            </div>
+            <div className="relative min-w-[80px] aspect-[9/16] rounded-full md:min-w-[200px]">
+              <Image
+                src="/casamento-3.webp"
+                alt="Pre-wedding 3"
                 fill
                 className="rounded-full object-cover"
               />

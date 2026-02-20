@@ -5,218 +5,37 @@ import Image from "next/image";
 import { WeddingNav } from "@/components/wedding-nav";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Gift, ExternalLink, Check, Edit } from "lucide-react";
+import { Gift, ExternalLink, Check, Edit, Loader2 } from "lucide-react";
 import CurrencyInput from "react-currency-input-field";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { Footer } from "@/components/sections/footer";
+import useSWR from "swr";
 
 interface GiftItem {
   id: number;
   name: string;
   price: number;
-  image: string;
+  image_url: string;
   category: string;
   reserved: boolean;
-  amountReserved?: number;
+  amount_reserved: number | null;
 }
 
-const gifts: GiftItem[] = [
-  {
-    id: 1,
-    name: "Tábua de cortar de bamboo",
-    price: 59,
-    image: "/tabua.jpeg",
-    category: "Cozinha",
-    reserved: false,
-  },
-  {
-    id: 2,
-    name: "Ventilador",
-    price: 299,
-    image: "/ventilador.jpeg",
-    category: "Quarto",
-    reserved: false,
-  },
-  {
-    id: 3,
-    name: "Jogo de Copos",
-    price: 65,
-    image: "/copos.jpeg",
-    category: "Mesa",
-    reserved: false,
-  },
-  {
-    id: 6,
-    name: "Potes Herméticos",
-    price: 175,
-    image: "/potes.jpeg",
-    category: "Cozinha",
-    reserved: false,
-  },
-  {
-    id: 7,
-    name: "Vassoura Rodo Esfregão",
-    price: 160,
-    image: "/mop.jpeg",
-    category: "Casa",
-    reserved: false,
-  },
-  {
-    id: 8,
-    name: "Organizador de Talheres",
-    price: 75,
-    image: "/organizador.jpeg",
-    category: "Cozinha",
-    reserved: false,
-  },
-  {
-    id: 9,
-    name: "Ferro Vaporizador Black-Decker",
-    price: 185,
-    image: "/ferro.jpeg",
-    category: "Quarto",
-    reserved: false,
-  },
-  {
-    id: 10,
-    name: "Jogo Pratos Tramontina",
-    price: 460,
-    image: "/pratos.jpeg",
-    category: "Mesa",
-    reserved: false,
-    amountReserved: 0,
-  },
-  {
-    id: 15,
-    name: "Jogo de Facas",
-    price: 85,
-    image: "/facas.jpeg",
-    category: "Cozinha",
-    reserved: false,
-  },
-  {
-    id: 16,
-    name: "Liquidificador Mondial",
-    price: 150,
-    image: "/liquidificador.jpeg",
-    category: "Cozinha",
-    reserved: false,
-  },
-  {
-    id: 17,
-    name: "Colibri Rack Bancada",
-    price: 750,
-    image: "/rack.webp",
-    category: "Casa",
-    reserved: false,
-    amountReserved: 200,
-  },
-  {
-    id: 23,
-    name: "Microondas Panasonic",
-    price: 450,
-    image: "/microondas.jpeg",
-    category: "Cozinha",
-    reserved: false,
-    amountReserved: 200,
-  },
-  {
-    id: 24,
-    name: "Airfrier Mondial",
-    price: 230,
-    image: "/airfrier.jpeg",
-    category: "Cozinha",
-    reserved: false,
-  },
-  {
-    id: 19,
-    name: "Máquina de Lavar",
-    price: 2400,
-    image: "/maquina-lavar.jpeg",
-    category: "Casa",
-    reserved: false,
-    amountReserved: 0,
-  },
-  {
-    id: 20,
-    name: "2kg de picanha",
-    price: 140,
-    image: "/picanha.jpeg",
-    category: "Cozinha",
-    reserved: false,
-  },
-  {
-    id: 26,
-    name: "Fogão 4 bocas",
-    price: 800,
-    image: "/fogao.jpeg",
-    category: "Cozinha",
-    reserved: false,
-    amountReserved: 0,
-  },
-  {
-    id: 21,
-    name: "Panelas Brinox",
-    price: 400,
-    image: "/panelas.jpeg",
-    category: "Cozinha",
-    reserved: false,
-    amountReserved: 0,
-  },
-  {
-    id: 22,
-    name: "Geladeira",
-    price: 2800,
-    image: "/geladeira.jpeg",
-    category: "Cozinha",
-    reserved: false,
-    amountReserved: 0,
-  },
-  {
-    id: 27,
-    name: "Sofá",
-    price: 1500,
-    image: "/sofa.jpeg",
-    category: "Casa",
-    reserved: false,
-    amountReserved: 0,
-  },
-  {
-    id: 28,
-    name: "Jogo de cama",
-    price: 60,
-    image: "/jogo-cama.jpeg",
-    category: "Quarto",
-    reserved: false,
-  },
-  {
-    id: 29,
-    name: "Lingerie sexy para a noite de núpcias",
-    price: 60,
-    image: "/calcola.webp",
-    category: "Casal",
-    reserved: false,
-  },
-  {
-    id: 30,
-    name: "2 passagens para a lua (lua de mel)",
-    price: 560,
-    image: "/lua-de-mel.jpeg",
-    category: "Casal",
-    reserved: false,
-    amountReserved: 0,
-  },
-];
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function PresentesPage() {
   const moneyInputRef = useRef<HTMLInputElement | null>(null);
+  const {
+    data: gifts = [],
+    isLoading,
+    error,
+  } = useSWR<GiftItem[]>("/api/gifts", fetcher);
   const [moneyInputValue, setMoneyInputValue] = useState(0);
   const [selectedGift, setSelectedGift] = useState<GiftItem | null>(null);
   const [filter, setFilter] = useState<string>("Todos");
@@ -246,8 +65,8 @@ export default function PresentesPage() {
     setSelectedGift(gift);
     setPixData(null); // Reset PIX data when opening a new gift
 
-    if (gift.amountReserved !== undefined) {
-      const giftPrice = gift.price - gift.amountReserved;
+    if (gift.amount_reserved !== undefined) {
+      const giftPrice = gift.price - (gift.amount_reserved || 0);
       setMoneyInputValue(parseFloat(giftPrice.toFixed(2)));
     }
   };
@@ -350,19 +169,29 @@ export default function PresentesPage() {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-6 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setFilter(category)}
-              data-selected={filter === category}
-              className="tracking-widest uppercase text-sm font-medium cursor-pointer px-3 py-2 data-[selected=true]:underline data-[selected=true]:underline-offset-2 data-[selected=true]:text-foreground text-muted-foreground transition decoration-dim-green decoration-[5px]"
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+        {!isLoading && (
+          <div className="flex flex-wrap justify-center gap-6 mb-12">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setFilter(category)}
+                data-selected={filter === category}
+                className="tracking-widest uppercase text-sm font-medium cursor-pointer px-3 py-2 data-[selected=true]:underline data-[selected=true]:underline-offset-2 data-[selected=true]:text-foreground text-muted-foreground transition decoration-dim-green decoration-[5px]"
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        )}
 
+        {isLoading && (
+          <div className="flex items-center justify-center w-full h-full">
+            <Loader2
+              className="size-10 animate-spin text-swamp-green"
+              strokeWidth={1.5}
+            />
+          </div>
+        )}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredGifts.map((gift) => (
             <Card
@@ -374,7 +203,7 @@ export default function PresentesPage() {
             >
               <div className="relative aspect-square overflow-hidden bg-muted">
                 <Image
-                  src={gift.image || "/placeholder.svg"}
+                  src={gift.image_url || "/placeholder.svg"}
                   alt={gift.name}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -395,24 +224,24 @@ export default function PresentesPage() {
                   </h3>
                   <Gift className="w-5 h-5 text-muted-foreground flex-shrink-0" />
                 </div>
-                {gift.amountReserved !== undefined && (
+                {gift.amount_reserved !== null && (
                   <p className="font-medium text-swamp-green">
                     Contribua para esse presente!
                   </p>
                 )}
                 <p className="font-serif text-2xl text-foreground">
-                  {gift.amountReserved !== undefined && (
+                  {gift.amount_reserved !== null && (
                     <span className="text-lg">
-                      {formatPrice(gift.amountReserved)} de
+                      {formatPrice(gift.amount_reserved)} de
                     </span>
                   )}{" "}
-                  {formatPrice(gift.price)}
+                  {formatPrice(gift.price / 100)}
                 </p>
-                {gift.amountReserved !== undefined && (
+                {gift.amount_reserved !== null && (
                   <div
                     className="absolute h-2 bg-swamp-green left-0 bottom-0"
                     style={{
-                      width: `${(gift.amountReserved / gift.price) * 100}%`,
+                      width: `${(gift.amount_reserved / gift.price) * 100}%`,
                     }}
                   />
                 )}
@@ -442,7 +271,7 @@ export default function PresentesPage() {
             {!pixData?.success && (
               <div className="text-center">
                 <p className="text-sm text-muted-foreground mb-1">Valor</p>
-                {selectedGift?.amountReserved !== undefined && !pixData ? (
+                {selectedGift?.amount_reserved !== null && !pixData ? (
                   <div className="flex flex-col items-center">
                     <div className="relative w-[60%]">
                       <CurrencyInput
@@ -539,6 +368,9 @@ export default function PresentesPage() {
                     </div>
 
                     <div className="space-y-2">
+                      <p className="text-xl text-center font-bold">
+                        AGENCIA PRIME LTDA
+                      </p>
                       <p className="text-xs text-center text-muted-foreground">
                         Código PIX Copia e Cola
                       </p>
