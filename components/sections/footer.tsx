@@ -62,12 +62,6 @@ export function Footer() {
                 PRESENTES
               </Link>
               <Link
-                href="/fotos"
-                className="hover:opacity-70 transition-opacity"
-              >
-                FOTOS
-              </Link>
-              <Link
                 href="/rsvp"
                 className="hover:opacity-70 transition-opacity"
               >

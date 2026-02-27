@@ -39,9 +39,6 @@ export function WeddingNav() {
             >
               PRESENTES
             </Link>
-            <Link href="/fotos" className="hover:opacity-70 transition-opacity">
-              FOTOS
-            </Link>
             <Link href="/rsvp" className="hover:opacity-70 transition-opacity">
               RSVP
             </Link>
@@ -81,14 +78,6 @@ export function WeddingNav() {
                         className="hover:opacity-70 transition-opacity"
                       >
                         PRESENTES
-                      </Link>
-                    </SheetClose>
-                    <SheetClose asChild>
-                      <Link
-                        href="/fotos"
-                        className="hover:opacity-70 transition-opacity"
-                      >
-                        fotos
                       </Link>
                     </SheetClose>
                     <SheetClose asChild>
