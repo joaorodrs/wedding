@@ -1,11 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
-import {
-  Geist,
-  Oranienbaum,
-  Badeen_Display,
-  Pinyon_Script,
-} from "next/font/google";
+import { Geist, Oranienbaum, Pinyon_Script } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";

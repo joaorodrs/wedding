@@ -81,7 +81,7 @@
 @theme inline {
   --font-sans: "Geist", "Geist Fallback";
   --font-serif: "Oranienbaum", "Georgia", "serif";
-  --font-handwritten: "'Pinyon Script'", "serif";
+  --font-handwritten: "Pinyon Script", "Oranienbaum", "Georgia", "serif";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-dim-green: var(--dim-green);
