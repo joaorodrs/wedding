@@ -125,13 +125,6 @@ export default function CerimoniaPage() {
                       <p className="text-sm text-muted-foreground">Padrinhos</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-20 h-20 rounded-full bg-vanilla flex-shrink-0 border-4 border-background shadow-lg" />
-                    <div>
-                      <p className="font-serif text-xl">Baunilha</p>
-                      <p className="text-sm text-muted-foreground">Madrinhas</p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
