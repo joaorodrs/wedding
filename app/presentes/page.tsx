@@ -3,9 +3,10 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { WeddingNav } from "@/components/wedding-nav";
+import pixQRCode from "@dicascripto/pix-qrcode-generator";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Gift, ExternalLink, Check, Edit, Loader2 } from "lucide-react";
+import { Gift, Check, Edit, Loader2 } from "lucide-react";
 import CurrencyInput from "react-currency-input-field";
 import {
   Dialog,
@@ -32,7 +33,12 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 export default function PresentesPage() {
   const moneyInputRef = useRef<HTMLInputElement | null>(null);
   const { data = [], isLoading } = useSWR<GiftItem[]>("/api/gifts", fetcher);
-  const gifts = data.map((item) => ({ ...item, price: item.price / 100 }));
+  const gifts = data.map((item) => ({
+    ...item,
+    price: item.price / 100,
+    amount_reserved:
+      item.amount_reserved !== null ? item.amount_reserved / 100 : null,
+  }));
   const [moneyInputValue, setMoneyInputValue] = useState(0);
   const [selectedGift, setSelectedGift] = useState<GiftItem | null>(null);
   const [filter, setFilter] = useState<string>("Todos");
@@ -62,42 +68,35 @@ export default function PresentesPage() {
     setSelectedGift(gift);
     setPixData(null); // Reset PIX data when opening a new gift
 
-    if (gift.amount_reserved !== undefined) {
+    if (gift.amount_reserved !== null) {
       const giftPrice = gift.price - (gift.amount_reserved || 0);
       setMoneyInputValue(parseFloat(giftPrice.toFixed(2)));
     }
   };
 
-  const handleCheckPaymentStatus = async () => {
+  const handleReserveGift = async () => {
     if (!selectedGift) return;
 
-    setLoading(true);
-    try {
-      const response = await fetch(`/api/pay/pix?id=${pixData?.billingId}`, {
-        method: "GET",
-      });
+    const price = moneyInputValue || selectedGift.price;
 
-      const data = await response.json();
+    await fetch("/api/gifts", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: selectedGift.id,
+        amountReserved:
+          selectedGift.amount_reserved !== null
+            ? (selectedGift.amount_reserved || 0) + price * 100
+            : null,
+        reserved:
+          selectedGift.amount_reserved === null
+            ? true
+            : (selectedGift.amount_reserved || 0) + price * 100 >=
+              selectedGift.price,
+      }),
+    });
 
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to check payment status");
-      }
-
-      if (data.status == "PAID") {
-        setPixData((curr) => ({ ...curr, success: true }));
-        return;
-      }
-
-      toast("Pagamento ainda não confirmado", {
-        description: "Aguarde alguns instantes",
-        position: "top-right",
-      });
-    } catch (error) {
-      console.error("Payment error:", error);
-      // You might want to show an error toast here
-    } finally {
-      setLoading(false);
-    }
+    setPixData((curr) => ({ ...curr, success: true }));
   };
 
   const handlePixPayment = async () => {
@@ -110,26 +109,22 @@ export default function PresentesPage() {
       if (!price) {
         return toast("Informe um valor de presente");
       }
-
-      const response = await fetch("/api/pay/pix", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          giftId: selectedGift.id,
-          name: selectedGift.name,
-          price,
-        }),
+      const qrcode = await pixQRCode.generateDynamicPixQRCode({
+        key: "85e99ed6-d0a2-4eed-b935-ff78977e66b3",
+        name: "Joao Paulo Alencar Rodrig",
+        city: "SAO PAULO",
+        amount: price,
+        transactionId: "PRESENTE123",
       });
 
-      const data = await response.json();
+      const rawPixStr = qrcode.qrCodeText;
+      const qrCodeBase64 = qrcode.qrCodeImage;
 
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to create payment");
-      }
-
-      setPixData(data);
+      setPixData({
+        amount: price,
+        pixCode: rawPixStr,
+        pixQrCode: qrCodeBase64,
+      });
     } catch (error) {
       console.error("Payment error:", error);
     } finally {
@@ -341,16 +336,19 @@ export default function PresentesPage() {
                     </div>
 
                     <div className="relative flex justify-center size-60 mx-auto">
-                      <Image
-                        src={pixData.pixQrCode || "/placeholder.svg"}
+                      <img
+                        src={
+                          `data:image/png;base64, ${pixData.pixQrCode}` ||
+                          "/placeholder.svg"
+                        }
                         alt="PIX QR CODE"
-                        fill
+                        className="size-60"
                       />
                     </div>
 
                     <div className="space-y-2">
                       <p className="text-xl text-center font-bold">
-                        AGENCIA PRIME LTDA
+                        João Paulo Alencar Rodrigues
                       </p>
                       <p className="text-xs text-center text-muted-foreground">
                         Código PIX Copia e Cola
@@ -374,9 +372,9 @@ export default function PresentesPage() {
                     <Button
                       className="w-full bg-green-700"
                       size="lg"
-                      onClick={handleCheckPaymentStatus}
+                      onClick={handleReserveGift}
                     >
-                      Já paguei <Check />
+                      Reservar presente!
                     </Button>
                     <Button
                       variant="ghost"
@@ -390,7 +388,7 @@ export default function PresentesPage() {
                   <div>
                     <div className="text-center space-y-4">
                       <h4 className="font-serif text-4xl tracking-widest uppercase text-green-600">
-                        Pagamento Confirmado
+                        Presente comprado!
                       </h4>
                       <p className="text-sm text-muted-foreground">
                         Muito obrigado por contribuir para o nosso presente!
@@ -403,8 +401,7 @@ export default function PresentesPage() {
 
             {!pixData?.success && (
               <p className="text-xs text-muted-foreground text-center leading-relaxed">
-                Após a confirmação do pagamento, o presente será marcado como
-                reservado e você receberá um email de confirmação.
+                Caso já tenha presenteado, você poderá marcar como "reservado".
               </p>
             )}
           </div>
