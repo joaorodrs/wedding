@@ -90,7 +90,7 @@ export default function CerimoniaPage() {
 
         <div className="container mx-auto px-6 mb-32">
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-[2fr,1fr] gap-16 items-center">
+            <div className="grid lg:grid-cols-[2fr,1fr] gap-6 items-center">
               <div>
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-16 h-1 bg-foreground" />
@@ -106,23 +106,18 @@ export default function CerimoniaPage() {
                 </div>
               </div>
 
-              <div className="bg-muted/30 p-10 rounded-sm">
+              <div className="bg-muted/30 py-10 rounded-sm">
                 <h3 className="font-serif text-3xl mb-8 tracking-tight">
-                  Paleta dos Padrinhos
+                  Paleta dos Padrinhos & Madrinhas
                 </h3>
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
-                    <div className="w-20 h-20 rounded-full bg-olive-green flex-shrink-0 border-4 border-background shadow-lg" />
+                    <div className="w-20 h-20 rounded-full bg-[#46512f] flex-shrink-0 border-4 border-background shadow-lg" />
+                    <div className="w-20 h-20 rounded-full bg-[#606c44] flex-shrink-0 border-4 border-background shadow-lg" />
+                    <div className="w-20 h-20 rounded-full bg-[#77865d] flex-shrink-0 border-4 border-background shadow-lg" />
+                    <div className="w-20 h-20 rounded-full bg-[#8da478] flex-shrink-0 border-4 border-background shadow-lg" />
                     <div>
                       <p className="font-serif text-xl">Verde Oliva</p>
-                      <p className="text-sm text-muted-foreground">Madrinhas</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-20 h-20 rounded-full bg-swamp-green flex-shrink-0 border-4 border-background shadow-lg" />
-                    <div>
-                      <p className="font-serif text-xl">Verde Abacate</p>
-                      <p className="text-sm text-muted-foreground">Padrinhos</p>
                     </div>
                   </div>
                 </div>
@@ -175,19 +170,25 @@ export default function CerimoniaPage() {
                   </li>
                   <li className="flex gap-3 leading-relaxed text-muted-foreground">
                     <span className="text-foreground flex-shrink-0">→</span>
-                    <span>Estacionamento disponível no local</span>
+                    <span>
+                      É necessária a confirmação de presença para comparecimento
+                      no dia do evento
+                    </span>
                   </li>
                   <li className="flex gap-3 leading-relaxed text-muted-foreground">
                     <span className="text-foreground flex-shrink-0">→</span>
-                    <span>Bar aberto durante toda a celebração</span>
+                    <span>
+                      Padrinhos e madrinhas não precisam de confirmação nem
+                      senhas para o dia do evento
+                    </span>
                   </li>
                   <li className="flex gap-3 leading-relaxed text-muted-foreground">
                     <span className="text-foreground flex-shrink-0">→</span>
-                    <span>Menu especial para crianças</span>
-                  </li>
-                  <li className="flex gap-3 leading-relaxed text-muted-foreground">
-                    <span className="text-foreground flex-shrink-0">→</span>
-                    <span>Área kids com monitores especializados</span>
+                    <span>
+                      É permitido a entrada com bebidas alcoólicas no local,
+                      desde que em local próprio para armazenagem (coolers,
+                      bolsas térmicas, etc)
+                    </span>
                   </li>
                 </ul>
               </div>

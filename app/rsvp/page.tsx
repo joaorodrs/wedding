@@ -428,7 +428,7 @@ export function RSVPPageContent() {
                     textAnchor="middle"
                     className="font-serif text-xl fill-current text-foreground/40"
                   >
-                    {"J&R"}
+                    {"J&T"}
                   </text>
                 </svg>
               </div>

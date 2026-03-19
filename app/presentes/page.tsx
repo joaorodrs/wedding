@@ -398,12 +398,6 @@ export default function PresentesPage() {
                 )}
               </div>
             )}
-
-            {!pixData?.success && (
-              <p className="text-xs text-muted-foreground text-center leading-relaxed">
-                Caso já tenha presenteado, você poderá marcar como "reservado".
-              </p>
-            )}
           </div>
         </DialogContent>
       </Dialog>
