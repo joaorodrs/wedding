@@ -14,8 +14,8 @@ export default async function Convite({
     <div className="min-h-screen bg-background">
       <WeddingNav />
 
-      <main className="pt-32 bg-[url('/capa-inicio.webp')] bg-center pb-12 flex flex-col lg:flex-row">
-        <div className="bg-[#f5f1ea]/50 lg:w-1/2 backdrop-blur-md rounded-t-full p-4 mx-2">
+      <main className="pt-32 bg-[url('/capa-inicio.webp')] bg-center pb-12 flex flex-col lg:flex-row lg:justify-center">
+        <div className="bg-[#f5f1ea]/50 lg:w-1/2 max-w-lg mx-2 lg:mx-0 backdrop-blur-md rounded-t-full p-4">
           <div className="font-serif flex flex-col gap-2 text-right px-6 border border-[#4e4f3d] pt-12 rounded-t-full pb-4">
             <Image
               src="/brazao.png"
@@ -52,7 +52,7 @@ export default async function Convite({
             </div>
           </div>
         </div>
-        <div className="bg-[#99a285] lg:w-1/2 lg:rounded-b-full p-4 mx-2 text-white text-center font-serif flex flex-col gap-6 overflow-clip">
+        <div className="bg-[#99a285] lg:w-1/2 mx-2 lg:mx-0 max-w-lg lg:rounded-t-full p-4 text-white text-center font-serif flex flex-col gap-6 overflow-clip justify-center">
           <h1 className="font-handwritten text-4xl mt-4">Outros detalhes</h1>
           <p className="text-left">
             Preparamos um espaço especial com carinho para compartilhar mais
