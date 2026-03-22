@@ -61,6 +61,9 @@ export default async function Convite({
             e outras orientações importantes.
           </p>
           <div className="mt-4">
+            <h1 className="text-xl mb-4">
+              Confirmar presença até dia 05 de maio
+            </h1>
             <Link href={`/rsvp?c=${id}`} className="block mb-6">
               <button className="w-full py-3 font-serif text-xl tracking-wider transition-all duration-300 bg-foreground text-background hover:opacity-90 cursor-pointer">
                 Confirmar Presença
