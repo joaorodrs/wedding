@@ -5,6 +5,7 @@ import { Suspense, useEffect, useState } from "react";
 import { Check, ChevronDown, Minus, Plus, Heart, Loader2 } from "lucide-react";
 import useSWR from "swr";
 import { useSearchParams } from "next/navigation";
+import { Footer } from "@/components/sections/footer";
 
 interface Guest {
   id: string;
@@ -141,6 +142,8 @@ export function RSVPPageContent() {
             </div>
           </div>
         </main>
+
+        <Footer />
       </div>
     );
   }
@@ -436,6 +439,8 @@ export function RSVPPageContent() {
           </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }
