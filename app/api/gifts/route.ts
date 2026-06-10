@@ -7,7 +7,8 @@ export async function GET() {
   const { data, error } = await supabase
     .from("gifts")
     .select()
-    .order("confirmed", { ascending: true });
+    .filter("reserved", "eq", "true")
+    .order("name", { ascending: true });
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
