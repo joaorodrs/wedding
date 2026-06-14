@@ -7,7 +7,7 @@ export async function GET() {
   const { data, error } = await supabase
     .from("gifts")
     .select()
-    .filter("reserved", "eq", "true")
+    .filter("reserved", "eq", "false")
     .order("name", { ascending: true });
 
   if (error) {
